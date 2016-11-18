@@ -4,27 +4,42 @@ using System.Collections;
 public class BallLauncher : MonoBehaviour {
 
 	public GameObject ball;
+
     public float ballSpeed = 8.0f;
+
+	public float windowOfOportunity = 2F;
+
 	public static bool ballLives;
-	Camera cam;
+
+	private Camera cam;
 
 
-    // Use this for initialization
     void Start () 
 	{
 		cam = GetComponentInChildren<Camera>();
 	}
 	
 
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space)&& !ballLives)
+	void Update () 
+	{
+
+		windowOfOportunity -= Time.deltaTime;
+		print (windowOfOportunity);
+
+
+		if (windowOfOportunity <= 0 && !ballLives)
         {
-            GameObject instance = Instantiate(ball);
-            instance.transform.position = transform.position;
-            
-			Rigidbody rb = instance.GetComponent<Rigidbody>();
-            rb.velocity = cam.transform.rotation * Vector3.forward * ballSpeed;
-			ballLives = true;
+			ShootBall ();
+			windowOfOportunity = 2;
         }
     }
+	void ShootBall()
+	{
+		GameObject instance = Instantiate(ball);
+		instance.transform.position = transform.position;
+
+		Rigidbody rb = instance.GetComponent<Rigidbody>();
+		rb.velocity = cam.transform.rotation * Vector3.forward * ballSpeed;
+		ballLives = true;
+	}
 }
