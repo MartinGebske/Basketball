@@ -25,7 +25,5 @@ public class ScoreManager : MonoBehaviour {
     public void IncrementScore(int amount)
     {
         score += amount;
-        AudioSource source = GetComponent<AudioSource>();
-        source.Play();
     }
 }
