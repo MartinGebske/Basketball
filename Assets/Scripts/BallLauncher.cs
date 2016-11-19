@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BallLauncher : MonoBehaviour {
 
-	public GameObject ball;
+	public GameObject basketBall;
 
     public float ballSpeed = 8.0f;
 
@@ -13,10 +13,12 @@ public class BallLauncher : MonoBehaviour {
 
 	private Camera cam;
 
+	private Shredder shredder;
 
     void Start () 
 	{
 		cam = GetComponentInChildren<Camera>();
+		shredder = FindObjectOfType<Shredder> ();
 	}
 	
 
@@ -24,7 +26,6 @@ public class BallLauncher : MonoBehaviour {
 	{
 
 		windowOfOportunity -= Time.deltaTime;
-		print (windowOfOportunity);
 
 
 		if (windowOfOportunity <= 0 && !ballLives)
@@ -32,10 +33,12 @@ public class BallLauncher : MonoBehaviour {
 			ShootBall ();
 			windowOfOportunity = 2;
         }
+		if (windowOfOportunity < -10 && ballLives)
+			shredder.DestroyBall ();
     }
 	void ShootBall()
 	{
-		GameObject instance = Instantiate(ball);
+		GameObject instance = Instantiate(basketBall);
 		instance.transform.position = transform.position;
 
 		Rigidbody rb = instance.GetComponent<Rigidbody>();

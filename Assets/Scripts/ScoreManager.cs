@@ -21,14 +21,6 @@ public class ScoreManager : MonoBehaviour {
 		ThisInstance = this;
 	}
 
-	void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public void IncrementScore(int amount)
     {

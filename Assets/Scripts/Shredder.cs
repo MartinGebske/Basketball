@@ -11,4 +11,12 @@ public class Shredder : MonoBehaviour
 		BallLauncher.ballLives = false;
 	}
 
+	public void DestroyBall()
+	{
+		GameObject ballToDestroy = GameObject.FindGameObjectWithTag ("Basketball");
+		Destroy (ballToDestroy);
+		Debug.Log ("destroyed old ball");
+		BallLauncher.ballLives = false;
+	}
+
 }
