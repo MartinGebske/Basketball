@@ -22,18 +22,11 @@ public class BallLauncher : MonoBehaviour {
 
 	void Update () 
 	{
-
-		GameObject.FindObjectOfType<Ball> ();
-
-		print (ball);
+		ball = GameObject.FindObjectOfType<Ball> ();
 
 		windowOfOportunity -= Time.deltaTime;
 	
-		if (windowOfOportunity <= 0 && ball != null)
-        {
-			ShootBall ();
-			windowOfOportunity = 2;
-        }
+
 		if (windowOfOportunity < -10 && ball == null) {
 			shredder.DestroyBall ();
 			windowOfOportunity = 2;
@@ -41,6 +34,18 @@ public class BallLauncher : MonoBehaviour {
 			
 		
     }
+
+	public void GrabBall()
+	{
+		ball.transform.position = transform.position;
+		if (windowOfOportunity <= 0 && ball != null)
+		{
+			ShootBall ();
+			windowOfOportunity = 2;
+		}
+	}
+
+
 	void ShootBall()
 	{
 		Rigidbody rb = ball.GetComponent<Rigidbody>();

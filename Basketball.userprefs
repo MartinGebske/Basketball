@@ -1,8 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BallLauncher.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GoogleVR/DemoScenes/HeadsetDemo/Teleport.cs">
     <Files>
-      <File FileName="Assets/Scripts/BallLauncher.cs" Line="22" Column="67" />
+      <File FileName="Assets/Scripts/Shredder.cs" Line="8" Column="28" />
+      <File FileName="Assets/Scripts/DetectScoring.cs" Line="8" Column="1" />
+      <File FileName="Assets/Scripts/BallLauncher.cs" Line="28" Column="2" />
+      <File FileName="Assets/Scripts/Ball.cs" Line="5" Column="44" />
+      <File FileName="Assets/GoogleVR/Scripts/UI/GvrGaze.cs" Line="21" Column="37" />
+      <File FileName="Assets/Scripts/BallSpender.cs" Line="13" Column="5" />
+      <File FileName="Assets/GoogleVR/DemoScenes/HeadsetDemo/Teleport.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
