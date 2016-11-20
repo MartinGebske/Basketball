@@ -4,13 +4,15 @@ using UnityEngine.EventSystems;
 
 public class Ball : MonoBehaviour, IGvrGazeResponder {
 
+
+	// Singleton declaration
 	public static Ball DefaultInstance{
 		get{ return ThisInstance; }
 	}
 
 	private static Ball ThisInstance = null;
 
-	private GvrReticle reticle;
+	private BallLauncher ballLauncher;
 
 	void Awake()
 	{
@@ -19,13 +21,15 @@ public class Ball : MonoBehaviour, IGvrGazeResponder {
 			return;
 		}
 		ThisInstance = this;
+
+		ballLauncher = FindObjectOfType<BallLauncher> ();
 	}
 
 
 
 	public void OnGazeEnter()
 	{
-		Debug.Log ("Enter");
+		ballLauncher.GrabBall ();
 	}
 	public void OnGazeTrigger()
 	{

@@ -15,7 +15,7 @@ public class BallLauncher : MonoBehaviour {
 
     void Start () 
 	{
-		cam = GetComponentInChildren<Camera>();
+		cam = GetComponent<Camera>();
 		shredder = FindObjectOfType<Shredder> ();
 	}
 	
@@ -38,11 +38,13 @@ public class BallLauncher : MonoBehaviour {
 	public void GrabBall()
 	{
 		ball.transform.position = transform.position;
-		if (windowOfOportunity <= 0 && ball != null)
-		{
-			ShootBall ();
-			windowOfOportunity = 2;
-		}
+		Rigidbody rb = ball.GetComponent<Rigidbody>();
+		rb.useGravity = false;
+		//if (windowOfOportunity <= 0 && ball != null)
+		//{
+		//	ShootBall ();
+		//	windowOfOportunity = 2;
+		//}
 	}
 
 
