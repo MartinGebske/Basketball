@@ -3,67 +3,63 @@ using System.Collections;
 
 public class BallLauncher : MonoBehaviour {
 
-	public enum States { GRABBING, SHOOTING }
+	public Camera cam;
+
+	public GameObject basketBall;
 
     public float ballSpeed = 8.0f;
 
-	public float windowOfOportunity = 2F;
-
 	public Transform grabPosition;
 
-	private Camera cam;
+	public float windowOfOportunity = 2F;
 
-	private Shredder shredder;
-	private Ball ball;
+	private enum States { IDLE, GRABBING, SHOOTING }
 
-	States StateMachine;
-
-	States ShootState = States.SHOOTING;
-	States GrabState = States.GRABBING;
-
-    void Start () 
-	{
+	private States StateMachine;
 		
-		cam = GetComponentInChildren<Camera>();
-		shredder = FindObjectOfType<Shredder> ();
-	}
-
-
 	void Update () 
 	{
-		ball = GameObject.FindObjectOfType<Ball> ();
 
-		if (StateMachine == ShootState) {
+		switch (StateMachine) 
+		{
+
+		case States.IDLE:
+
+			// Do nothing
+			break;
+		
+		case States.GRABBING:
 			windowOfOportunity -= Time.deltaTime;
-			if (windowOfOportunity <= 0) {
-				ShootBall ();
-			}	
-		}
 
-		if (windowOfOportunity < -10 && ball == null) {
-			shredder.DestroyBall ();
-			windowOfOportunity = 2;
+			if (windowOfOportunity <= 0) {
+				StateMachine = States.SHOOTING;
+				windowOfOportunity = 2;
+			}
+				break;
+			
+		case States.SHOOTING:
+			ShootBall ();
+			break;
 		}
     }
 
 	public void GrabBall()
 	{
-		ball.transform.position = grabPosition.transform.position;
-		Rigidbody rb = ball.GetComponent<Rigidbody>();
-		rb.useGravity = false;
-		ball.transform.SetParent (grabPosition);
-		StateMachine = ShootState;
+		GameObject ballToGrab = GameObject.FindGameObjectWithTag ("Basketball");
+		ballToGrab.transform.position = grabPosition.position;
+		ballToGrab.transform.SetParent (grabPosition);
+		Ball.isInPlay = true;
+		StateMachine = States.GRABBING;
 	}
 
 
 	void ShootBall()
 	{
-			Rigidbody rb = ball.GetComponent<Rigidbody>();
-			rb.useGravity = true;
-			rb.velocity = cam.transform.rotation * Vector3.forward * ballSpeed;
-	}
-	void ResetBall()
-	{
-		
+		GameObject ballToShoot = GameObject.FindGameObjectWithTag ("Basketball");
+		Rigidbody rb = ballToShoot.GetComponent<Rigidbody> ();
+		rb.velocity = cam.transform.rotation * Vector3.forward * ballSpeed;
+		rb.useGravity = true;
+		ballToShoot.transform.parent = null;
+		StateMachine = States.IDLE;
 	}
 }

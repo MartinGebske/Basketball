@@ -4,31 +4,21 @@ using UnityEngine.EventSystems;
 
 public class Ball : MonoBehaviour, IGvrGazeResponder {
 
-
-	// Singleton declaration
-	public static Ball DefaultInstance{
-		get{ return ThisInstance; }
-	}
-
-	private static Ball ThisInstance = null;
-
 	private BallLauncher ballLauncher;
 
-	void Awake()
-	{
-		if (ThisInstance != null) {
-			DestroyImmediate (gameObject);
-			return;
-		}
-		ThisInstance = this;
+	public static bool isInPlay;
 
+	void Start()
+	{
 		ballLauncher = FindObjectOfType<BallLauncher> ();
 	}
-
-
+		
 
 	public void OnGazeEnter()
 	{
+		Debug.Log ("Enter");
+
+		if(!isInPlay)
 		ballLauncher.GrabBall ();
 	}
 	public void OnGazeTrigger()

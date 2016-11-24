@@ -5,22 +5,15 @@ public class BallSpender : MonoBehaviour {
 
 	public GameObject basketBall;
 
-	private Ball ball;
-
-	void Update()
+	void Start()
 	{
-		// Creates a new Ball automaticly after Ball died.
-		FindObjectOfType<Ball> ();
-
-		if (ball == null) 
-		{
-			SpendNewBall ();
-		} 
+		SpendNewBall ();
 	}
 
 	public void SpendNewBall()
 	{
-		basketBall.transform.position = transform.position;
+		Ball.isInPlay = false;
+		// TODO: "Wir instanzieren nicht!" :) Aus Performance Gründen könnte der Ball einfach ausgeschaltet und platziert werden.
 		GameObject newBall = Instantiate (basketBall, transform.position, Quaternion.identity) as GameObject;
 	}
 
