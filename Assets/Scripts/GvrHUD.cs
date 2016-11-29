@@ -12,7 +12,7 @@ public class GvrHUD : MonoBehaviour
 
 	public Text textField;
 
-
+	public Text scoreScreenMessage;
 
  	void Awake() 
 	{
@@ -32,8 +32,20 @@ public class GvrHUD : MonoBehaviour
       		transform.SetParent(cam.GetComponent<Transform>(), true);
     		}
   	}
+		
 	public void UpdateScore()
 	{
-		textField.text = ScoreManager.score.ToString ();
+		// Counts the added Score
+		textField.text = "SCORE \n" + ScoreManager.score.ToString ();
+	}
+
+	public void ShowScreenMessage ()
+	{
+		animator.enabled = true;
+		animator.SetTrigger ("hasScored");
+	}
+	public void HideScreenMessage()
+	{
+		animator.enabled = false;
 	}
 }

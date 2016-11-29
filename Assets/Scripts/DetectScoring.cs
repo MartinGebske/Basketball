@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class DetectScoring : MonoBehaviour {
 
-    public long scorePerHit = 1;
+    public int scorePerHit = 1;
 
 	private GvrHUD hud;
 
 	private ScoreManager scoreManager;
-
 
 	void Start()
 	{
@@ -19,6 +19,9 @@ public class DetectScoring : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         scoreManager.IncrementScore(scorePerHit);
+
+		hud.scoreScreenMessage.text = scorePerHit.ToString();
+		hud.ShowScreenMessage ();
 		hud.UpdateScore ();
     }
 }

@@ -15,7 +15,9 @@ public class LevelManager : MonoBehaviour
 	GameObject ball;
 	GameObject ring;
 	GameObject player;
+	GameObject interactiveUI;
 
+	Animator animatorUI;
 	Animator animator;
 
 	void Start()
@@ -41,15 +43,20 @@ public class LevelManager : MonoBehaviour
 	void SetupScene()
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
+		interactiveUI = GameObject.FindGameObjectWithTag ("InteractiveUI");
+
 		ball = GameObject.FindGameObjectWithTag ("Basketball");
 		ring = GameObject.FindGameObjectWithTag ("Ring");
+		animatorUI = interactiveUI.GetComponent<Animator> ();
 		animator = player.GetComponent<Animator> ();
 
 		sceneID = SceneManager.GetActiveScene ().buildIndex;
 		if (sceneID < playableLevelID) {
 			Destroy (ball);
 			animator.CrossFadeInFixedTime ("Idle", 0F);
+			animatorUI.CrossFadeInFixedTime ("Idle", 0F);
 		}
+
 		if (sceneID >= playableLevelID)
 			animator.enabled = true;
 	}
