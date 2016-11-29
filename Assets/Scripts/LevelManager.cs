@@ -12,6 +12,9 @@ public class LevelManager : MonoBehaviour
 
 	int sceneID; // check if Levelcountdown should be started
 
+	GameObject scoreDisplayer;
+	Text scoreText;
+
 	GameObject ball;
 	GameObject ring;
 	GameObject player;
@@ -47,18 +50,30 @@ public class LevelManager : MonoBehaviour
 
 		ball = GameObject.FindGameObjectWithTag ("Basketball");
 		ring = GameObject.FindGameObjectWithTag ("Ring");
+
 		animatorUI = interactiveUI.GetComponent<Animator> ();
 		animator = player.GetComponent<Animator> ();
+
+		scoreDisplayer = GameObject.FindGameObjectWithTag ("Scoretext");
+		scoreText = scoreDisplayer.GetComponent<Text> ();
 
 		sceneID = SceneManager.GetActiveScene ().buildIndex;
 		if (sceneID < playableLevelID) {
 			Destroy (ball);
 			animator.CrossFadeInFixedTime ("Idle", 0F);
 			animatorUI.CrossFadeInFixedTime ("Idle", 0F);
+			string tempString = "";
+			scoreText.text = tempString;
 		}
 
-		if (sceneID >= playableLevelID)
+		if (sceneID == 1)
+			ScoreManager.score = 0;
+
+		if (sceneID >= playableLevelID) {
 			animator.enabled = true;
+			scoreText.text = ScoreManager.score.ToString();
+		}
+			
 	}
 
 }
