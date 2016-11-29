@@ -3,9 +3,9 @@ using System.Collections;
 
 public class ScoreManager : MonoBehaviour {
 
-	public static int score = 0;
+	public static long score = 0;
 
-    public void IncrementScore(int amount)
+    public void IncrementScore(long amount)
     {
         score += amount;
     }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Text))]
+//[RequireComponent(typeof(Text))]
 public class GvrHUD : MonoBehaviour 
 {
   	public Camera cam;
@@ -10,13 +10,13 @@ public class GvrHUD : MonoBehaviour
 
 	private Animator animator;
 
-  	private Text textField;
+	public Text textField;
 
 
 
  	void Awake() 
 	{
-    	textField = GetComponent<Text>();
+		//textField = FindObjectOfType<Text>();
 		animator = GetComponent<Animator> ();
 		UpdateScore ();
   	}

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DetectScoring : MonoBehaviour {
 
-    public int scorePerHit = 1;
+    public long scorePerHit = 1;
 
 	private GvrHUD hud;
 

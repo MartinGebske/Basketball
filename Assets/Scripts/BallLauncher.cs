@@ -34,11 +34,12 @@ public class BallLauncher : MonoBehaviour {
 
 	void ShootBall()
 	{
-		GameObject ballToShoot = GameObject.FindGameObjectWithTag ("Basketball");
-		Rigidbody rb = ballToShoot.GetComponent<Rigidbody> ();
-		rb.velocity = cam.transform.rotation * Vector3.forward * ballSpeed;
-		rb.useGravity = true;
-		ballToShoot.transform.parent = null;
-
+		if (Ball.isInPlay) {
+			GameObject ballToShoot = GameObject.FindGameObjectWithTag ("Basketball");
+			Rigidbody rb = ballToShoot.GetComponent<Rigidbody> ();
+			rb.velocity = cam.transform.rotation * Vector3.forward * ballSpeed;
+			rb.useGravity = true;
+			ballToShoot.transform.parent = null;
+		}
 	}
 }

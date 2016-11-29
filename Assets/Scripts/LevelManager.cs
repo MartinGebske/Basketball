@@ -8,18 +8,26 @@ public class LevelManager : MonoBehaviour
 
 	[Tooltip("Levelspielzeit in Sekunden")]public float playTime;
 
+	[Tooltip("Buildindex der ersten Gameplay Scene")]public int playableLevelID;
+
 	int sceneID; // check if Levelcountdown should be started
 
+	GameObject ball;
+	GameObject ring;
+	GameObject player;
 
-	void Awake()
+	Animator animator;
+
+	void Start()
 	{
-		sceneID = SceneManager.GetActiveScene ().buildIndex;
+		SetupScene ();
+
 		playTime = playTime;
 	}
 
-	void FixedUpdate()
+	void Update()
 	{
-		if (sceneID > 0)
+		if (sceneID >= playableLevelID)
 			LevelCountDown ();
 	}
 
@@ -29,4 +37,21 @@ public class LevelManager : MonoBehaviour
 			SceneManager.LoadScene ("GameOver");
 		}
 	}
+
+	void SetupScene()
+	{
+		player = GameObject.FindGameObjectWithTag ("Player");
+		ball = GameObject.FindGameObjectWithTag ("Basketball");
+		ring = GameObject.FindGameObjectWithTag ("Ring");
+		animator = player.GetComponent<Animator> ();
+
+		sceneID = SceneManager.GetActiveScene ().buildIndex;
+		if (sceneID < playableLevelID) {
+			Destroy (ball);
+			animator.CrossFadeInFixedTime ("Idle", 0F);
+		}
+		if (sceneID >= playableLevelID)
+			animator.enabled = true;
+	}
+
 }
