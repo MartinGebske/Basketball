@@ -25,15 +25,20 @@ public class Shredder : MonoBehaviour
 
 	void OnTriggerEnter(Collider col)
 	{
-		Destroy (col.gameObject);
+		Rigidbody rb = col.attachedRigidbody;
+		rb.isKinematic = true;
+		//rb.velocity = new Vector3(0,0,0) ;
+
 		ballSpender.SpendNewBall ();
 	}
 		
 	public void DestroyBall()
 	{
-		GameObject ballToDestroy = GameObject.FindGameObjectWithTag ("Basketball");
-		Destroy (ballToDestroy);
+		GameObject basketBall = GameObject.FindGameObjectWithTag ("Basketball");
+		Rigidbody rb = basketBall.GetComponent<Rigidbody> ();
+		rb.isKinematic = true;
 		ballSpender.SpendNewBall ();
+
 	}
 
 	IEnumerator WaitForDestroy()

@@ -5,7 +5,9 @@ public class BallLauncher : MonoBehaviour {
 
 	public Camera cam;
 
-	public GameObject basketBall;
+
+
+
 
     public float ballSpeed = 8.0f;
 
@@ -15,13 +17,16 @@ public class BallLauncher : MonoBehaviour {
 
 	private Animator animator;
 
+	private GameObject basketBall;
+
+	private Rigidbody rb;
 
 	public void GrabBall()
 	{
+		FindBall ();
 		animator = GetComponent<Animator> ();
-		GameObject ballToGrab = GameObject.FindGameObjectWithTag ("Basketball");
-		ballToGrab.transform.position = grabPosition.position;
-		ballToGrab.transform.SetParent (grabPosition);
+		basketBall.transform.position = grabPosition.position;
+		basketBall.transform.SetParent (grabPosition);
 		Ball.isInPlay = true;
 		animator.SetTrigger ("hasGrabbedBall");
 	}
@@ -29,10 +34,17 @@ public class BallLauncher : MonoBehaviour {
 
 	void ShootBall()
 	{
-		GameObject ballToShoot = GameObject.FindGameObjectWithTag ("Basketball");
-		Rigidbody rb = ballToShoot.GetComponent<Rigidbody> ();
+		FindBall();
+		rb.isKinematic = false;
 		rb.velocity = cam.transform.rotation * Vector3.forward * ballSpeed;
-		rb.useGravity = true;
-		ballToShoot.transform.parent = null;
+
+		//rb.useGravity = true;
+		basketBall.transform.parent = null;
+	}
+
+	void FindBall()
+	{
+		basketBall = GameObject.FindGameObjectWithTag ("Basketball");
+		rb = basketBall.GetComponent<Rigidbody> ();
 	}
 }

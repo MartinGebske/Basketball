@@ -13,8 +13,8 @@ public class BallSpender : MonoBehaviour {
 	public void SpendNewBall()
 	{
 		Ball.isInPlay = false;
-		// TODO: "Wir instanzieren nicht!" :) Aus Performance Gründen könnte der Ball einfach ausgeschaltet und platziert werden.
-		GameObject newBall = Instantiate (basketBall, transform.position, Quaternion.identity) as GameObject;
+		basketBall.transform.position = this.transform.position;
+
 	}
 
 }
