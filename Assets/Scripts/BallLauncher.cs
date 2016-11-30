@@ -15,11 +15,6 @@ public class BallLauncher : MonoBehaviour {
 
 	private Animator animator;
 
-	void Start()
-	{
-		
-	}
-
 
 	public void GrabBall()
 	{
@@ -34,12 +29,10 @@ public class BallLauncher : MonoBehaviour {
 
 	void ShootBall()
 	{
-		if (Ball.isInPlay) {
-			GameObject ballToShoot = GameObject.FindGameObjectWithTag ("Basketball");
-			Rigidbody rb = ballToShoot.GetComponent<Rigidbody> ();
-			rb.velocity = cam.transform.rotation * Vector3.forward * ballSpeed;
-			rb.useGravity = true;
-			ballToShoot.transform.parent = null;
-		}
+		GameObject ballToShoot = GameObject.FindGameObjectWithTag ("Basketball");
+		Rigidbody rb = ballToShoot.GetComponent<Rigidbody> ();
+		rb.velocity = cam.transform.rotation * Vector3.forward * ballSpeed;
+		rb.useGravity = true;
+		ballToShoot.transform.parent = null;
 	}
 }

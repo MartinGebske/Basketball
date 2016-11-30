@@ -45,23 +45,22 @@ public class LevelManager : MonoBehaviour
 
 	void SetupScene()
 	{
-		player = GameObject.FindGameObjectWithTag ("Player");
-		interactiveUI = GameObject.FindGameObjectWithTag ("InteractiveUI");
+		// Things to deactivate
+		animator = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator>();
+		animatorUI = GameObject.FindGameObjectWithTag ("InteractiveUI").GetComponent<Animator>();
+		scoreText = GameObject.FindGameObjectWithTag ("Scoretext").GetComponent<Text> ();
 
+		// Things to deactivate that MIGHT be there
 		ball = GameObject.FindGameObjectWithTag ("Basketball");
 		ring = GameObject.FindGameObjectWithTag ("Ring");
 
-		animatorUI = interactiveUI.GetComponent<Animator> ();
-		animator = player.GetComponent<Animator> ();
-
-		scoreDisplayer = GameObject.FindGameObjectWithTag ("Scoretext");
-		scoreText = scoreDisplayer.GetComponent<Text> ();
-
 		sceneID = SceneManager.GetActiveScene ().buildIndex;
+
 		if (sceneID < playableLevelID) {
 			Destroy (ball);
 			animator.CrossFadeInFixedTime ("Idle", 0F);
 			animatorUI.CrossFadeInFixedTime ("Idle", 0F);
+
 			string tempString = "";
 			scoreText.text = tempString;
 		}
@@ -73,7 +72,5 @@ public class LevelManager : MonoBehaviour
 			animator.enabled = true;
 			scoreText.text = ScoreManager.score.ToString();
 		}
-			
 	}
-
 }
