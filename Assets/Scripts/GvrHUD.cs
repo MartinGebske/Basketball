@@ -16,9 +16,7 @@ public class GvrHUD : MonoBehaviour
 
  	void Awake() 
 	{
-		//textField = FindObjectOfType<Text>();
 		animator = GetComponent<Animator> ();
-		UpdateScore ();
   	}
 
   	void Start() 
@@ -33,11 +31,6 @@ public class GvrHUD : MonoBehaviour
     		}
   	}
 		
-	public void UpdateScore()
-	{
-		// Counts the added Score
-		textField.text = "SCORE \n" + ScoreManager.score.ToString ();
-	}
 
 	public void ShowScreenMessage ()
 	{

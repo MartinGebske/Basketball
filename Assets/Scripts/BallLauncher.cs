@@ -5,10 +5,6 @@ public class BallLauncher : MonoBehaviour {
 
 	public Camera cam;
 
-
-
-
-
     public float ballSpeed = 8.0f;
 
 	public Transform grabPosition;

@@ -10,10 +10,9 @@ public class LevelManager : MonoBehaviour
 
 	[Tooltip("Buildindex der ersten Gameplay Scene")]public int playableLevelID;
 
-	int sceneID; // check if Levelcountdown should be started
+	public float timeLeft;
 
-	GameObject scoreDisplayer;
-	Text scoreText;
+	int sceneID; // check if Levelcountdown should be started
 
 	GameObject ball;
 	GameObject ring;
@@ -38,9 +37,12 @@ public class LevelManager : MonoBehaviour
 
 	void LevelCountDown()
 	{
-		if (playTime <= Time.timeSinceLevelLoad) {
+		float playedTime = Time.timeSinceLevelLoad;
+
+		timeLeft = playTime - playedTime;
+
+		if (playedTime >= playTime)
 			SceneManager.LoadScene ("GameOver");
-		}
 	}
 
 	void SetupScene()
@@ -48,7 +50,6 @@ public class LevelManager : MonoBehaviour
 		// Things to deactivate
 		animator = GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator>();
 		animatorUI = GameObject.FindGameObjectWithTag ("InteractiveUI").GetComponent<Animator>();
-		scoreText = GameObject.FindGameObjectWithTag ("Scoretext").GetComponent<Text> ();
 
 		// Things to deactivate that MIGHT be there
 		ball = GameObject.FindGameObjectWithTag ("Basketball");
@@ -60,9 +61,6 @@ public class LevelManager : MonoBehaviour
 			Destroy (ball);
 			animator.CrossFadeInFixedTime ("Idle", 0F);
 			animatorUI.CrossFadeInFixedTime ("Idle", 0F);
-
-			string tempString = "";
-			scoreText.text = tempString;
 		}
 
 		if (sceneID == 1)
@@ -70,7 +68,6 @@ public class LevelManager : MonoBehaviour
 
 		if (sceneID >= playableLevelID) {
 			animator.enabled = true;
-			scoreText.text = ScoreManager.score.ToString();
 		}
 	}
 }
