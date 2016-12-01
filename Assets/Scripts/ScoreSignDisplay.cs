@@ -18,11 +18,12 @@ public class ScoreSignDisplay : MonoBehaviour
 
 	void Update()
 	{
-		timerText.text = levelManager.timeLeft.ToString();
+		timerText.text = levelManager.timeLeft.ToString("F");
 	}
 
 	public void UpdateScore()
 	{
+		
 		scoreText.text = ScoreManager.score.ToString();
 	}
 

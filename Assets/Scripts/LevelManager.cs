@@ -41,6 +41,7 @@ public class LevelManager : MonoBehaviour
 
 		timeLeft = playTime - playedTime;
 
+
 		if (playedTime >= playTime)
 			SceneManager.LoadScene ("GameOver");
 	}
