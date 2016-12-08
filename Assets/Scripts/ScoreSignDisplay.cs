@@ -16,7 +16,7 @@ public class ScoreSignDisplay : MonoBehaviour
 		UpdateScore ();
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
 		timerText.text = levelManager.timeLeft.ToString("F");
 	}

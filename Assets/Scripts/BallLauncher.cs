@@ -34,7 +34,7 @@ public class BallLauncher : MonoBehaviour {
 		rb.isKinematic = false;
 		rb.velocity = cam.transform.rotation * Vector3.forward * ballSpeed;
 
-		//rb.useGravity = true;
+		rb.useGravity = true;
 		basketBall.transform.parent = null;
 	}
 

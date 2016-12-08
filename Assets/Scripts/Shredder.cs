@@ -14,7 +14,7 @@ public class Shredder : MonoBehaviour
 			killTime = 5;
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
 		if(Ball.isInPlay)
 			StartCoroutine ("WaitForDestroy");
@@ -27,14 +27,14 @@ public class Shredder : MonoBehaviour
 	{
 		Rigidbody rb = col.attachedRigidbody;
 		rb.isKinematic = true;
-		//rb.velocity = new Vector3(0,0,0) ;
-
+		Ball.scoreStreak = -1;
 		ballSpender.SpendNewBall ();
 	}
 		
 	public void DestroyBall()
 	{
 		GameObject basketBall = GameObject.FindGameObjectWithTag ("Basketball");
+		Ball.scoreStreak = -1;
 		Rigidbody rb = basketBall.GetComponent<Rigidbody> ();
 		rb.isKinematic = true;
 		ballSpender.SpendNewBall ();

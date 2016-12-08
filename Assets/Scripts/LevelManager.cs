@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
 
 	[Tooltip("Buildindex der ersten Gameplay Scene")]public int playableLevelID;
 
-	public float timeLeft;
+	[HideInInspector]public float timeLeft;
 
 	int sceneID; // check if Levelcountdown should be started
 
@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
 		playTime = playTime;
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
 		if (sceneID >= playableLevelID)
 			LevelCountDown ();
@@ -37,6 +37,7 @@ public class LevelManager : MonoBehaviour
 
 	void LevelCountDown()
 	{
+
 		float playedTime = Time.timeSinceLevelLoad;
 
 		timeLeft = playTime - playedTime;

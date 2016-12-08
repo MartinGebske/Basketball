@@ -17,6 +17,8 @@
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll'
 -r:'/Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll'
 -r:'/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll'
+-r:'/Applications/Unity/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll'
+-r:'/Applications/Unity/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll'
 -r:'/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll'
 -r:'/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll'
 -r:'/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll'
@@ -92,6 +94,7 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_OSX
 -define:UNITY_TEAM_LICENSE
+-define:UNITY_PRO_LICENSE
 'Assets/GoogleVR/Editor/GvrAudioListenerEditor.cs'
 'Assets/GoogleVR/Editor/GvrAudioRoomEditor.cs'
 'Assets/GoogleVR/Editor/GvrAudioSoundfieldEditor.cs'

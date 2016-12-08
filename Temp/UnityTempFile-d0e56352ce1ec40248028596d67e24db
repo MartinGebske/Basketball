@@ -81,6 +81,7 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_OSX
 -define:UNITY_TEAM_LICENSE
+-define:UNITY_PRO_LICENSE
 'Assets/GoogleVR/DemoScenes/ControllerDemo/ControllerDebugInfo.cs'
 'Assets/GoogleVR/DemoScenes/ControllerDemo/ControllerDemoManager.cs'
 'Assets/GoogleVR/DemoScenes/HeadsetDemo/Teleport.cs'

@@ -6,11 +6,15 @@ public class Ball : MonoBehaviour, IGvrGazeResponder {
 
 	private BallLauncher ballLauncher;
 
+
+	public static int scoreStreak;
+
 	public static bool isInPlay;
 
 	void Start()
 	{
 		ballLauncher = FindObjectOfType<BallLauncher> ();
+		scoreStreak = 0;
 	}
 		
 

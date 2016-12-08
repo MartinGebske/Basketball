@@ -6,29 +6,37 @@ public class DetectScoring : MonoBehaviour {
 
     public int scorePerHit = 1;
 
-	private GvrHUD hud;
-	private ScoreSignDisplay[] scoreDisplay = new ScoreSignDisplay[2];
+	public Collider enterCollider;
 
 	private ScoreManager scoreManager;
 
+	private BallSpender ballSpender;
+
+	private GameObject basketBall;
+
+	private Rigidbody rb;
+
 	void Start()
 	{
-		foreach (var item in scoreDisplay) {
-			scoreDisplay = FindObjectsOfType<ScoreSignDisplay> ();
+		basketBall = GameObject.FindGameObjectWithTag ("Basketball");
+		rb = basketBall.GetComponent<Rigidbody> ();
 
-		}
-
-		hud = FindObjectOfType<GvrHUD> ();
 		scoreManager = FindObjectOfType<ScoreManager>();
+		ballSpender = FindObjectOfType<BallSpender> ();
+
 	}
 
-    void OnCollisionEnter(Collision collision)
-    {
+
+
+	void OnTriggerEnter(Collider ballCol)
+	{
+		rb.isKinematic = true;
+
         scoreManager.IncrementScore(scorePerHit);
 
-		hud.scoreScreenMessage.text = scorePerHit.ToString();
-		hud.ShowScreenMessage ();
+		Ball.scoreStreak++;
 
-		}
+		ballSpender.SpendNewBall ();
+	}
 
 }
