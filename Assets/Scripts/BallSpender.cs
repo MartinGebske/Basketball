@@ -4,11 +4,9 @@ using System.Collections;
 public class BallSpender : MonoBehaviour {
 
 	public GameObject basketBall;
-	private Rigidbody rb;
 
 	void Start()
 	{
-		rb = basketBall.GetComponent<Rigidbody> ();
 		SpendNewBall ();
 	}
 

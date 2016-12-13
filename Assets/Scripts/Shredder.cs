@@ -14,7 +14,7 @@ public class Shredder : MonoBehaviour
 			killTime = 5;
 	}
 
-	void FixedUpdate()
+	void Update()
 	{
 		if(Ball.isInPlay)
 			StartCoroutine ("WaitForDestroy");

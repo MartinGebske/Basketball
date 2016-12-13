@@ -134,6 +134,7 @@
 'Assets/Scripts/GvrHUD.cs'
 'Assets/Scripts/LevelManager.cs'
 'Assets/Scripts/Player.cs'
+'Assets/Scripts/RandomizedAppearing.cs'
 'Assets/Scripts/ScoreManager.cs'
 'Assets/Scripts/ScoreSignDisplay.cs'
 'Assets/Scripts/Shredder.cs'
