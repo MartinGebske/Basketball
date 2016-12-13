@@ -12,7 +12,6 @@ public class BallSpender : MonoBehaviour {
 
 	public void SpendNewBall()
 	{
-		
 		basketBall.transform.position = this.transform.position;
 		Ball.isInPlay = false;
 	}

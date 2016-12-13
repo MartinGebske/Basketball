@@ -15,7 +15,6 @@ public class LevelManager : MonoBehaviour
 	int sceneID; // check if Levelcountdown should be started
 
 	GameObject ball;
-//	GameObject ring;
 	GameObject player;
 	GameObject interactiveUI;
 
@@ -25,8 +24,6 @@ public class LevelManager : MonoBehaviour
 	void Start()
 	{
 		SetupScene ();
-
-		//playTime = playTime;
 	}
 
 	void Update()
@@ -37,11 +34,8 @@ public class LevelManager : MonoBehaviour
 
 	void LevelCountDown()
 	{
-
 		float playedTime = Time.timeSinceLevelLoad;
-
 		timeLeft = playTime - playedTime;
-
 
 		if (playedTime >= playTime)
 			SceneManager.LoadScene ("GameOver");
@@ -55,7 +49,6 @@ public class LevelManager : MonoBehaviour
 
 		// Things to deactivate that MIGHT be there
 		ball = GameObject.FindGameObjectWithTag ("Basketball");
-	//	ring = GameObject.FindGameObjectWithTag ("Ring");
 
 		sceneID = SceneManager.GetActiveScene ().buildIndex;
 

@@ -23,6 +23,7 @@ public class BallLauncher : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 		basketBall.transform.position = grabPosition.position;
 		basketBall.transform.SetParent (grabPosition);
+
 		Ball.isInPlay = true;
 		animator.SetTrigger ("hasGrabbedBall");
 	}

@@ -40,15 +40,13 @@ public class RandomizedAppearing : MonoBehaviour
 
 	IEnumerator MainLoop()
 	{
-		Debug.Log (gameObject.name + "entered Main Loop");
 		yield return new  WaitForSeconds (invisibleTime);
 		childObjects.SetActive (true);
-
 
 		if (childObjects.activeInHierarchy) {
 			yield return new WaitForSeconds (showTime);
 			childObjects.SetActive (false);
 			InitializeLoop ();
-			}
+		}
 	}
 }
