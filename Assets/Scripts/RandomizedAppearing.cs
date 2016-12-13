@@ -27,14 +27,12 @@ public class RandomizedAppearing : MonoBehaviour
 	{
 		invisibleTime = RandomizeValue (minInvisibleTime, maxInvisibleTime);
 		showTime = RandomizeValue(minShowTime, maxShowTime);
-
 		StartCoroutine ("MainLoop");
 	}
 		
 	float RandomizeValue(float min, float max)
 	{
 		float randomizedValue = Random.Range (min, max);
-
 		return randomizedValue;
 	}
 
