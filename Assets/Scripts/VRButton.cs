@@ -26,6 +26,11 @@ public class VRButton : MonoBehaviour, IGvrGazeResponder
 		// Senden welche Szene das Objekt darstelt.
 		// Starten der Animation
 		// Wenn die Animation fertig ist Szene starten
+
+		if (sceneToLoad == "") {
+			SceneManager.LoadScene (Player.lastVisitedScene);
+		}
+		else	
 		SceneManager.LoadScene(sceneToLoad);
 	}
 

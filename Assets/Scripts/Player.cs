@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 
 	private static Player thisPlayer = null;
 
+	public static int lastVisitedScene;
 
 	void Awake()
 	{
