@@ -9,9 +9,13 @@ public class Player : MonoBehaviour {
 		get{return thisPlayer;}
 	}
 
-	private static Player thisPlayer = null;
+	public AudioClip throwSound;
 
 	public static int lastVisitedScene;
+
+	private AudioSource audioSource;
+
+	private static Player thisPlayer = null;
 
 	void Awake()
 	{
@@ -20,5 +24,11 @@ public class Player : MonoBehaviour {
 		}
 		thisPlayer = this;
 		DontDestroyOnLoad (gameObject);
+		audioSource = GetComponentInChildren<AudioSource> ();
+	}
+		
+	public void PlayThrowSound()
+	{
+		audioSource.PlayOneShot (throwSound);
 	}
 }

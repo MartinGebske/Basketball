@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AudioManager.cs" />
      <Compile Include="Assets\GoogleVR\DemoScenes\ControllerDemo\ControllerDebugInfo.cs" />
      <Compile Include="Assets\GoogleVR\DemoScenes\ControllerDemo\ControllerDemoManager.cs" />
      <Compile Include="Assets\GoogleVR\DemoScenes\HeadsetDemo\Teleport.cs" />
@@ -89,9 +90,11 @@
      <Compile Include="Assets\GoogleVR\Scripts\UI\IGvrGazePointer.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\UI\IGvrGazeResponder.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrIntent.cs" />
+     <Compile Include="Assets\Particle Ribbon\Scripts\ReverseNormals.cs" />
      <Compile Include="Assets\Scripts\Ball.cs" />
      <Compile Include="Assets\Scripts\BallLauncher.cs" />
      <Compile Include="Assets\Scripts\BallSpender.cs" />
+     <Compile Include="Assets\Scripts\BallStreakEvents.cs" />
      <Compile Include="Assets\Scripts\DetectScoring.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
@@ -105,6 +108,7 @@
      <None Include="Assets\GoogleVR\Legacy\Resources\UnlitTexture.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest-Daydream.xml" />
      <None Include="Assets\GoogleVR\Resources\UI\GvrReticleShader.shader" />
+     <None Include="Assets\Particle Ribbon\readme_Simple_Particle_Ribbon.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest-Cardboard.xml" />
      <None Include="Assets\GoogleVR\Legacy\Resources\SolidColor.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />

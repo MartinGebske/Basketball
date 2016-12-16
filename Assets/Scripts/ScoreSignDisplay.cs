@@ -9,7 +9,6 @@ public class ScoreSignDisplay : MonoBehaviour
 
 	private LevelManager levelManager;
 
-
 	void Start()
 	{
 		levelManager = FindObjectOfType<LevelManager> ();
@@ -23,7 +22,6 @@ public class ScoreSignDisplay : MonoBehaviour
 
 	public void UpdateScore()
 	{
-		
 		scoreText.text = ScoreManager.score.ToString();
 	}
 

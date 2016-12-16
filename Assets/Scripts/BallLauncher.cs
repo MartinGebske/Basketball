@@ -17,10 +17,19 @@ public class BallLauncher : MonoBehaviour {
 
 	private Rigidbody rb;
 
+	private Player player;
+
+
+	void Start()
+	{
+		player = FindObjectOfType<Player> ();	
+		animator = GetComponent<Animator> ();
+	}
+
 	public void GrabBall()
 	{
 		FindBall ();
-		animator = GetComponent<Animator> ();
+		//animator = GetComponent<Animator> ();
 		basketBall.transform.position = grabPosition.position;
 		basketBall.transform.SetParent (grabPosition);
 
@@ -37,6 +46,9 @@ public class BallLauncher : MonoBehaviour {
 
 		rb.useGravity = true;
 		basketBall.transform.parent = null;
+
+		player.PlayThrowSound ();
+
 	}
 
 	void FindBall()

@@ -12,21 +12,33 @@ public class DetectScoring : MonoBehaviour {
 
 	private BallSpender ballSpender;
 
+	private BallStreakEvents ballEvents;
+
 	private GameObject basketBall;
 
 	private Rigidbody rb;
 
+	private Renderer rend;
+
 	private Animator animator;
+
+	private AudioSource audioSource;
 
 	void Start()
 	{
+
+		audioSource = GetComponent<AudioSource> ();
+
 		animator = GetComponentInChildren<Animator> ();
 
 		basketBall = GameObject.FindGameObjectWithTag ("Basketball");
 		rb = basketBall.GetComponent<Rigidbody> ();
+		rend = basketBall.GetComponent<Renderer> ();
+
 
 		scoreManager = FindObjectOfType<ScoreManager>();
 		ballSpender = FindObjectOfType<BallSpender> ();
+		ballEvents = FindObjectOfType<BallStreakEvents> ();
 
 		scoreText.text = scorePerHit.ToString ();
 
@@ -38,16 +50,28 @@ public class DetectScoring : MonoBehaviour {
 
 		rb.isKinematic = true;
 
-		// ggf. in Animation auslagern?
-		ballSpender.SpendNewBall ();
+		StartCoroutine ("WaitForBall");
 	}
 
 	void ScoreAction()
 	{
+		this.audioSource.Play ();
+
+		rend.enabled = false;
+
 		animator.SetTrigger ("hasScored");
 
 		scoreManager.IncrementScore(scorePerHit);
+	
+		BallStreakEvents.scoreStreak++;
 
-		Ball.scoreStreak++;
+		ballEvents.UpdateScoring ();
+	
+	}
+
+	IEnumerator WaitForBall()
+	{
+		yield return new WaitForSeconds (0.3F);
+		ballSpender.SpendNewBall ();
 	}
 }
