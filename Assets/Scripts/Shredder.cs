@@ -11,12 +11,11 @@ public class Shredder : MonoBehaviour
 
 	private Renderer rend;
 
-	private AudioSource audioSource;
+	public delegate void OnBallKilled();
+	public static event OnBallKilled OnBallKilledEvent;
 
 	void Start()
 	{
-		audioSource = GetComponent<AudioSource> ();
-
 		basketBall = GameObject.FindGameObjectWithTag ("Basketball");
 		rend = basketBall.GetComponent<Renderer> ();
 
@@ -31,13 +30,11 @@ public class Shredder : MonoBehaviour
 			StartCoroutine ("WaitForDestroy");
 		if(!Ball.isInPlay)
 			StopCoroutine("WaitForDestroy");
-			
 	}
 
 	void OnTriggerEnter(Collider col)
 	{
-		audioSource.Play ();
-		BallStreakEvents.scoreStreak = 0;
+		OnBallKilledEvent ();
 		rend.enabled = false;
 		Rigidbody rb = col.attachedRigidbody;
 		rb.isKinematic = true;
@@ -52,8 +49,7 @@ public class Shredder : MonoBehaviour
 
 	public void DestroyBall()
 	{
-		audioSource.Play ();
-		BallStreakEvents.scoreStreak = 0;
+		OnBallKilledEvent (); 
 		GameObject basketBall = GameObject.FindGameObjectWithTag ("Basketball");
 		Rigidbody rb = basketBall.GetComponent<Rigidbody> ();
 		rb.isKinematic = true;

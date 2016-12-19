@@ -9,11 +9,21 @@ public class BallSpender : MonoBehaviour {
 
 	private Renderer rend;
 
-	private AudioSource audioSource;
+	public delegate void OnSpawnNewBall();
+	public static event OnSpawnNewBall OnSpawnNewBallEvent;
+
+	void OnEnabled()
+	{
+		Shredder.OnBallKilledEvent += this.SpendNewBall;
+	}
+
+	void OnDisabled()
+	{
+		Shredder.OnBallKilledEvent -= this.SpendNewBall;
+	}
 
 	void Start()
 	{
-		audioSource = GetComponent<AudioSource> ();
 		rend = basketBall.GetComponent<Renderer> ();
 		rend.enabled = false;
 		SpendNewBall ();
@@ -22,7 +32,7 @@ public class BallSpender : MonoBehaviour {
 	public void SpendNewBall()
 	{
 		spawnPart.Play ();
-		audioSource.Play ();
+		OnSpawnNewBallEvent ();
 		basketBall.transform.position = this.transform.position;
 		StartCoroutine (WaitForBall ());
 	}
@@ -33,4 +43,6 @@ public class BallSpender : MonoBehaviour {
 		Ball.isInPlay = false;
 		rend.enabled = true;
 	}
+
+
 }
