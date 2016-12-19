@@ -19,6 +19,7 @@ public class BallLauncher : MonoBehaviour {
 
 	private Player player;
 
+	static readonly int anim_HasGrabbedBall = Animator.StringToHash("hasGrabbedBall");
 
 	void Start()
 	{
@@ -34,10 +35,9 @@ public class BallLauncher : MonoBehaviour {
 		basketBall.transform.SetParent (grabPosition);
 
 		Ball.isInPlay = true;
-		animator.SetTrigger ("hasGrabbedBall");
+		animator.SetTrigger (anim_HasGrabbedBall);
 	}
-
-
+		
 	void ShootBall()
 	{
 		FindBall();
@@ -48,7 +48,6 @@ public class BallLauncher : MonoBehaviour {
 		basketBall.transform.parent = null;
 
 		player.PlayThrowSound ();
-
 	}
 
 	void FindBall()

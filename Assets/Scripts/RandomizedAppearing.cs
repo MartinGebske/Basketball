@@ -27,7 +27,7 @@ public class RandomizedAppearing : MonoBehaviour
 	{
 		invisibleTime = RandomizeValue (minInvisibleTime, maxInvisibleTime);
 		showTime = RandomizeValue(minShowTime, maxShowTime);
-		StartCoroutine ("MainLoop");
+		StartCoroutine (MainLoop());
 	}
 		
 	float RandomizeValue(float min, float max)
@@ -43,6 +43,8 @@ public class RandomizedAppearing : MonoBehaviour
 
 		if (childObjects.activeInHierarchy) {
 			yield return new WaitForSeconds (showTime);
+			if (DetectScoring.currentScoreRoutine)
+				yield return new WaitForSeconds (1);
 			childObjects.SetActive (false);
 			InitializeLoop ();
 		}

@@ -12,6 +12,8 @@ public class VRButton : MonoBehaviour, IGvrGazeResponder
 
 	Animator animator;
 
+	// denke an den static readonly int YOURANIMATIONCLIP = Animator.StringToHash("ANIMATIONCLIP");
+
 	public string sceneToLoad;
 
 	void Start()

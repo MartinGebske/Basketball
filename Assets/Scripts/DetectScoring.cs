@@ -8,6 +8,8 @@ public class DetectScoring : MonoBehaviour {
 
 	public Text scoreText;
 
+	public static bool currentScoreRoutine;
+
 	private ScoreManager scoreManager;
 
 	private BallSpender ballSpender;
@@ -24,9 +26,10 @@ public class DetectScoring : MonoBehaviour {
 
 	private AudioSource audioSource;
 
+	static readonly int anim_HasScored = Animator.StringToHash("hasScored");
+
 	void Start()
 	{
-
 		audioSource = GetComponent<AudioSource> ();
 
 		animator = GetComponentInChildren<Animator> ();
@@ -35,22 +38,22 @@ public class DetectScoring : MonoBehaviour {
 		rb = basketBall.GetComponent<Rigidbody> ();
 		rend = basketBall.GetComponent<Renderer> ();
 
-
 		scoreManager = FindObjectOfType<ScoreManager>();
 		ballSpender = FindObjectOfType<BallSpender> ();
 		ballEvents = FindObjectOfType<BallStreakEvents> ();
 
 		scoreText.text = scorePerHit.ToString ();
-
 	}
 		
 	void OnTriggerEnter(Collider ballCol)
 	{
+		currentScoreRoutine = true;
+
 		ScoreAction ();
 
 		rb.isKinematic = true;
 
-		StartCoroutine ("WaitForBall");
+		StartCoroutine (WaitForBall());
 	}
 
 	void ScoreAction()
@@ -59,7 +62,7 @@ public class DetectScoring : MonoBehaviour {
 
 		rend.enabled = false;
 
-		animator.SetTrigger ("hasScored");
+		animator.SetTrigger (anim_HasScored);
 
 		scoreManager.IncrementScore(scorePerHit);
 	
@@ -72,6 +75,9 @@ public class DetectScoring : MonoBehaviour {
 	IEnumerator WaitForBall()
 	{
 		yield return new WaitForSeconds (0.3F);
+
+		currentScoreRoutine = false;
+	
 		ballSpender.SpendNewBall ();
 	}
 }

@@ -16,17 +16,13 @@ public class Ball : MonoBehaviour, IGvrGazeResponder {
 
 	public void OnGazeEnter()
 	{
-		Debug.Log ("Enter");
-
 		if(!isInPlay)
 		ballLauncher.GrabBall ();
 	}
 	public void OnGazeTrigger()
 	{
-		Debug.Log ("Trigger");
 	}
 	public void OnGazeExit()
 	{
-		Debug.Log ("Exit");
 	}
 }

@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
 
 		// Things to deactivate that MIGHT be there
 		ball = GameObject.FindGameObjectWithTag ("Basketball");
-		animator.enabled = false;
+		animatorUI.enabled = false;
 
 		sceneID = SceneManager.GetActiveScene ().buildIndex;
 
