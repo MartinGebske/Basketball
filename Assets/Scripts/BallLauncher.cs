@@ -17,13 +17,13 @@ public class BallLauncher : MonoBehaviour {
 
 	private Rigidbody rb;
 
-	private Player player;
-
 	static readonly int anim_HasGrabbedBall = Animator.StringToHash("hasGrabbedBall");
+
+	public delegate void OnShootBall();
+	public static event OnShootBall OnShootBallEvent;
 
 	void Start()
 	{
-		player = FindObjectOfType<Player> ();	
 		animator = GetComponent<Animator> ();
 	}
 
@@ -47,7 +47,7 @@ public class BallLauncher : MonoBehaviour {
 		rb.useGravity = true;
 		basketBall.transform.parent = null;
 
-		player.PlayThrowSound ();
+		OnShootBallEvent();
 	}
 
 	void FindBall()

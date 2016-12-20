@@ -4,11 +4,30 @@ using System.Collections;
 public class BallStreakEvents : MonoBehaviour {
 
 	public static int scoreStreak;
+
 	private LevelManager levelManager;
+
 	private ScoreManager scoreManager;
+
+	public static BallStreakEvents ballStreak{
+		get{return thisBallStreak;}
+	}
+
+	public static BallStreakEvents thisBallStreak = null;
 
 	public delegate void OnScoreStrike ();
 	public static event OnScoreStrike OnScoreStrikeEvent;
+
+	void Awake()
+	{
+		if (thisBallStreak != null) {
+			Destroy (gameObject);
+		}
+
+		thisBallStreak = this;
+		DontDestroyOnLoad (gameObject);
+	}
+
 
 	void OnEnable()
 	{

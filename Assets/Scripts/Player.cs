@@ -9,11 +9,7 @@ public class Player : MonoBehaviour {
 		get{return thisPlayer;}
 	}
 
-	public AudioClip throwSound;
-
 	public static int lastVisitedScene;
-
-	private AudioSource audioSource;
 
 	private static Player thisPlayer = null;
 
@@ -24,11 +20,5 @@ public class Player : MonoBehaviour {
 		}
 		thisPlayer = this;
 		DontDestroyOnLoad (gameObject);
-		audioSource = GetComponentInChildren<AudioSource> ();
-	}
-		
-	public void PlayThrowSound()
-	{
-		audioSource.PlayOneShot (throwSound);
 	}
 }

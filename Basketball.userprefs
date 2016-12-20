@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/AudioManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BallStreakEvents.cs">
     <Files>
-      <File FileName="Assets/Scripts/ScoreManager.cs" Line="16" Column="4" />
-      <File FileName="Assets/Scripts/BallStreakEvents.cs" Line="61" Column="10" />
-      <File FileName="Assets/AudioManager.cs" Line="23" Column="2" />
+      <File FileName="Assets/Scripts/Player.cs" Line="11" Column="2" />
+      <File FileName="Assets/Scripts/BallStreakEvents.cs" Line="10" Column="2" />
+      <File FileName="Assets/Scripts/Shredder.cs" Line="37" Column="24" />
+      <File FileName="Assets/Scripts/AudioManager.cs" Line="16" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
