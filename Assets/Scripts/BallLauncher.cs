@@ -13,35 +13,13 @@ public class BallLauncher : MonoBehaviour {
 
 	public float windowOfOportunity = 2F;
 
-	private enum States { IDLE, GRABBING, SHOOTING }
+	private Animator animator;
 
-	private States StateMachine;
-		
-	void Update () 
+	void Start()
 	{
+		animator = GetComponent<Animator> ();
+	}
 
-		switch (StateMachine) 
-		{
-
-		case States.IDLE:
-
-			// Do nothing
-			break;
-		
-		case States.GRABBING:
-			windowOfOportunity -= Time.deltaTime;
-
-			if (windowOfOportunity <= 0) {
-				StateMachine = States.SHOOTING;
-				windowOfOportunity = 2;
-			}
-				break;
-			
-		case States.SHOOTING:
-			ShootBall ();
-			break;
-		}
-    }
 
 	public void GrabBall()
 	{
@@ -49,7 +27,7 @@ public class BallLauncher : MonoBehaviour {
 		ballToGrab.transform.position = grabPosition.position;
 		ballToGrab.transform.SetParent (grabPosition);
 		Ball.isInPlay = true;
-		StateMachine = States.GRABBING;
+		animator.SetTrigger ("hasGrabbedBall");
 	}
 
 
@@ -60,6 +38,6 @@ public class BallLauncher : MonoBehaviour {
 		rb.velocity = cam.transform.rotation * Vector3.forward * ballSpeed;
 		rb.useGravity = true;
 		ballToShoot.transform.parent = null;
-		StateMachine = States.IDLE;
+
 	}
 }
