@@ -17,12 +17,13 @@ public class BallLauncher : MonoBehaviour {
 
 	void Start()
 	{
-		animator = GetComponent<Animator> ();
+		
 	}
 
 
 	public void GrabBall()
 	{
+		animator = GetComponent<Animator> ();
 		GameObject ballToGrab = GameObject.FindGameObjectWithTag ("Basketball");
 		ballToGrab.transform.position = grabPosition.position;
 		ballToGrab.transform.SetParent (grabPosition);
