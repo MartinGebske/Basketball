@@ -14,19 +14,18 @@ public class DetectScoring : MonoBehaviour {
 
 	private BallSpender ballSpender;
 
-	private BallStreakEvents ballEvents;
-
 	private GameObject basketBall;
 
 	private Rigidbody rb;
-
-	private Renderer rend;
 
 	private Animator animator;
 
 	private AudioSource audioSource;
 
 	static readonly int anim_HasScored = Animator.StringToHash("hasScored");
+
+	public delegate void OnScoring ();
+	public static event OnScoring OnScoreEvent;
 
 	void Start()
 	{
@@ -36,11 +35,9 @@ public class DetectScoring : MonoBehaviour {
 
 		basketBall = GameObject.FindGameObjectWithTag ("Basketball");
 		rb = basketBall.GetComponent<Rigidbody> ();
-		rend = basketBall.GetComponent<Renderer> ();
 
 		scoreManager = FindObjectOfType<ScoreManager>();
 		ballSpender = FindObjectOfType<BallSpender> ();
-		ballEvents = FindObjectOfType<BallStreakEvents> ();
 
 		scoreText.text = scorePerHit.ToString ();
 	}
@@ -51,6 +48,8 @@ public class DetectScoring : MonoBehaviour {
 
 		ScoreAction ();
 
+		OnScoreEvent ();
+
 		rb.isKinematic = true;
 
 		StartCoroutine (WaitForBall());
@@ -60,16 +59,10 @@ public class DetectScoring : MonoBehaviour {
 	{
 		this.audioSource.Play ();
 
-		rend.enabled = false;
-
 		animator.SetTrigger (anim_HasScored);
 
+		// BUUUUG Wenn zum 5. mal gescored wurde. Hier geht es zum Score Manager und von da aus zum ScoreSignDisplay
 		scoreManager.IncrementScore(scorePerHit);
-	
-		BallStreakEvents.scoreStreak++;
-
-		ballEvents.UpdateScoring ();
-	
 	}
 
 	IEnumerator WaitForBall()

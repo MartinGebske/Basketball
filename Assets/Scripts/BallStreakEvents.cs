@@ -32,11 +32,13 @@ public class BallStreakEvents : MonoBehaviour {
 	void OnEnable()
 	{
 		Shredder.OnBallKilledEvent += this.ResetScoreStreak;
+		DetectScoring.OnScoreEvent += this.AddStreak;
 	}
 
 	void OnDisable()
 	{
 		Shredder.OnBallKilledEvent -= this.ResetScoreStreak;
+		DetectScoring.OnScoreEvent -= this.AddStreak;
 	}
 
 
@@ -65,8 +67,8 @@ public class BallStreakEvents : MonoBehaviour {
 		case 4:
 			break;
 		case 5:
-			scoreManager.IncrementScore(500);
-			OnScoreStrikeEvent ();
+			//scoreManager.IncrementScore(500);
+			//OnScoreStrikeEvent ();
 			break;
 		case 6:
 			break;
@@ -116,6 +118,12 @@ public class BallStreakEvents : MonoBehaviour {
 	void ResetScoreStreak()
 	{
 		scoreStreak = 0;
+		UpdateScoring ();
+	}
+
+	void AddStreak()
+	{
+		scoreStreak++;
 		UpdateScoring ();
 	}
 

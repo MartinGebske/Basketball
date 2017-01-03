@@ -4725,6 +4725,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 11454328, guid: 1ca94cd44ad0643fba572ee0aa5c4e6b, type: 2}
+      propertyPath: ballThrowSnd
+      value: 
+      objectReference: {fileID: 8300000, guid: e2bbb34cbc680471a937a5fecf7f6492, type: 3}
+    - target: {fileID: 8223420, guid: 1ca94cd44ad0643fba572ee0aa5c4e6b, type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223420, guid: 1ca94cd44ad0643fba572ee0aa5c4e6b, type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454328, guid: 1ca94cd44ad0643fba572ee0aa5c4e6b, type: 2}
+      propertyPath: enableMusic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ca94cd44ad0643fba572ee0aa5c4e6b, type: 2}
   m_IsPrefabParent: 0

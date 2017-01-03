@@ -15,5 +15,4 @@ public class ScoreManager : MonoBehaviour {
 			disp.UpdateScore ();
 		}
     }
-
 }

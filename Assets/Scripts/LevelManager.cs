@@ -66,6 +66,5 @@ public class LevelManager : MonoBehaviour
 			animator.enabled = true;
 			Player.lastVisitedScene = sceneID;
 		}
-
 	}
 }

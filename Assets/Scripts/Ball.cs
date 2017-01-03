@@ -12,17 +12,18 @@ public class Ball : MonoBehaviour, IGvrGazeResponder {
 
 	static readonly int anim_ShowBall = Animator.StringToHash("ballAppear");
 
-	Renderer rend;
-
 	void OnEnable()
 	{
 		Shredder.OnBallKilledEvent += this.OutOfGame;
+		DetectScoring.OnScoreEvent += this.OutOfGame;
 		BallSpender.OnSpawnNewBallEvent += this.ShowBall;
+
 	}
 
 	void OnDisable()
 	{
 		Shredder.OnBallKilledEvent -= this.OutOfGame;
+		DetectScoring.OnScoreEvent -= this.OutOfGame;
 		BallSpender.OnSpawnNewBallEvent -= this.ShowBall;
 	}
 
@@ -30,8 +31,6 @@ public class Ball : MonoBehaviour, IGvrGazeResponder {
 	{
 		ballLauncher = FindObjectOfType<BallLauncher> ();
 		animator = GetComponent<Animator> ();
-		rend = GetComponent<Renderer> ();
-
 	}
 
 	public void OnGazeEnter()
