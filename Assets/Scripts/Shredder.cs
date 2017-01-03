@@ -9,7 +9,7 @@ public class Shredder : MonoBehaviour
 
 	private GameObject basketBall;
 
-	private Renderer rend;
+	//private Renderer rend;
 
 	public delegate void OnBallKilled();
 	public static event OnBallKilled OnBallKilledEvent;
@@ -17,7 +17,7 @@ public class Shredder : MonoBehaviour
 	void Start()
 	{
 		basketBall = GameObject.FindGameObjectWithTag ("Basketball");
-		rend = basketBall.GetComponent<Renderer> ();
+		//rend = basketBall.GetComponent<Renderer> ();
 
 		ballSpender = FindObjectOfType<BallSpender> ();
 		if (killTime < 5)
@@ -35,7 +35,6 @@ public class Shredder : MonoBehaviour
 	void OnTriggerEnter(Collider col)
 	{
 		OnBallKilledEvent ();
-		rend.enabled = false;
 		Rigidbody rb = col.attachedRigidbody;
 		rb.isKinematic = true;
 		StartCoroutine ("WaitForBall");

@@ -3,11 +3,11 @@ using System.Collections;
 
 public class ScoreManager : MonoBehaviour {
 
-	public static long score = 0;
+	public static int score = 0;
 
 	public ScoreSignDisplay[] displayArray;
 
-    public void IncrementScore(long amount)
+    public void IncrementScore(int amount)
     {
         score += amount;
 

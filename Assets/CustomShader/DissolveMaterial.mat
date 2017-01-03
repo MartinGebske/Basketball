@@ -151,7 +151,7 @@ Material:
       data:
         first:
           name: _DissolveAmount
-        second: 1
+        second: 0
     m_Colors:
       data:
         first:

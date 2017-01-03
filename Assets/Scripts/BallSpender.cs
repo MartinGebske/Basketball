@@ -24,8 +24,8 @@ public class BallSpender : MonoBehaviour {
 
 	void Start()
 	{
-		rend = basketBall.GetComponent<Renderer> ();
-		rend.enabled = false;
+		//rend = basketBall.GetComponent<Renderer> ();
+		//rend.enabled = false;
 		SpendNewBall ();
 	}
 
@@ -41,7 +41,7 @@ public class BallSpender : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (2);
 		Ball.isInPlay = false;
-		rend.enabled = true;
+		//rend.enabled = true;
 	}
 
 

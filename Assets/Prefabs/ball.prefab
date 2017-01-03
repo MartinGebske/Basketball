@@ -13,6 +13,7 @@ GameObject:
   - 135: {fileID: 13512990}
   - 54: {fileID: 5455986}
   - 114: {fileID: 11444394}
+  - 95: {fileID: 9518302}
   m_Layer: 0
   m_Name: ball
   m_TagString: Basketball
@@ -81,6 +82,23 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!95 &9518302
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153796}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26b67d26a120d4eb5a53bdca2532fdaa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11444394
 MonoBehaviour:
   m_ObjectHideFlags: 1

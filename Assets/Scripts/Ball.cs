@@ -6,13 +6,33 @@ public class Ball : MonoBehaviour, IGvrGazeResponder {
 
 	private BallLauncher ballLauncher;
 
+	private Animator animator;
+
 	public static bool isInPlay;
+
+	static readonly int anim_ShowBall = Animator.StringToHash("ballAppear");
+
+	Renderer rend;
+
+	void OnEnable()
+	{
+		Shredder.OnBallKilledEvent += this.OutOfGame;
+		BallSpender.OnSpawnNewBallEvent += this.ShowBall;
+	}
+
+	void OnDisable()
+	{
+		Shredder.OnBallKilledEvent -= this.OutOfGame;
+		BallSpender.OnSpawnNewBallEvent -= this.ShowBall;
+	}
 
 	void Start()
 	{
 		ballLauncher = FindObjectOfType<BallLauncher> ();
+		animator = GetComponent<Animator> ();
+		rend = GetComponent<Renderer> ();
+
 	}
-		
 
 	public void OnGazeEnter()
 	{
@@ -24,5 +44,15 @@ public class Ball : MonoBehaviour, IGvrGazeResponder {
 	}
 	public void OnGazeExit()
 	{
+	}
+
+	public void ShowBall ()
+	{
+		animator.SetTrigger (anim_ShowBall);
+	}
+
+	void OutOfGame()
+	{
+		animator.CrossFade ("Idle", 0);
 	}
 }
