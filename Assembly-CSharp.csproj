@@ -94,7 +94,6 @@
      <Compile Include="Assets\Scripts\Ball.cs" />
      <Compile Include="Assets\Scripts\BallLauncher.cs" />
      <Compile Include="Assets\Scripts\BallSpender.cs" />
-     <Compile Include="Assets\Scripts\BallStreakEvents.cs" />
      <Compile Include="Assets\Scripts\DetectScoring.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />

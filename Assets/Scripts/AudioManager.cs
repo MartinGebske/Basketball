@@ -36,7 +36,6 @@ public class AudioManager : MonoBehaviour
 
 	void OnEnable()
 	{
-		BallStreakEvents.OnScoreStrikeEvent += this.OnPlayScoreStrike;
 		Shredder.OnBallKilledEvent += this.OnBallDestroyed;
 		BallSpender.OnSpawnNewBallEvent += this.OnSpawningBall;
 		BallLauncher.OnShootBallEvent += this.OnThrowBall;
@@ -44,7 +43,6 @@ public class AudioManager : MonoBehaviour
 
 	void OnDisable()
 	{
-		BallStreakEvents.OnScoreStrikeEvent -= this.OnPlayScoreStrike;
 		Shredder.OnBallKilledEvent -= this.OnBallDestroyed;
 		BallSpender.OnSpawnNewBallEvent -= this.OnSpawningBall;
 		BallLauncher.OnShootBallEvent += this.OnThrowBall;

@@ -15,7 +15,7 @@ public class PlayerPrefsManager : MonoBehaviour
 		DetectScoring.OnScoreEvent  -= this.ManageHighscore;
 	}
 
-	#if UNITY_EDITOR
+	//#if UNITY_EDITOR
 
 	// TODO: Just for Debug Purpose: Deletes Values in PlayerPrefs.... obviously. -.-
 
@@ -23,9 +23,10 @@ public class PlayerPrefsManager : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.F12)){
 			PlayerPrefs.DeleteAll ();
+			Debug.LogWarning("PlayerPrefs deleted!");
 			}
 	}
-	#endif
+	//#endif
 
 	void SaveSettings(Settings settings)
 	{
