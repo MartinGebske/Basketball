@@ -47,6 +47,9 @@ public class Ball : MonoBehaviour, IGvrGazeResponder {
 
 	public void ShowBall ()
 	{
+		if (animator == null) {
+			animator = GetComponent<Animator> ();
+		}
 		animator.SetTrigger (anim_ShowBall);
 	}
 

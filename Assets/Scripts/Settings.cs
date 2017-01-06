@@ -5,5 +5,5 @@ using System.Collections;
 
 public class Settings 
 {
-	public int highscore;
+	public int highscore = 0;
 }
