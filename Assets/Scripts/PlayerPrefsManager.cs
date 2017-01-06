@@ -7,6 +7,8 @@ public class PlayerPrefsManager : MonoBehaviour
 
 	int currentHighscore;
 
+	bool freshRun = true;
+
 	void OnEnable()
 	{
 		DetectScoring.OnScoreEvent += this.ManageHighscore;
@@ -26,6 +28,7 @@ public class PlayerPrefsManager : MonoBehaviour
 
 		currentHighscore = playerSettings.highscore;
 
+		freshRun = true;
 	}
 
 	// TODO: Just for Debug Purpose: Deletes Values in PlayerPrefs.... obviously. -.-
@@ -55,10 +58,15 @@ public class PlayerPrefsManager : MonoBehaviour
 
 	void ManageHighscore()
 	{
-		// Yeah... works ... kinda. But of course now the new Highscore Reached event is triggered all the time after the
-		// Highscore is beaten. This should happen ONCE it's done (add a bool?) and then ... the next time the level is loaded.
-		if (ScoreManager.score > currentHighscore) {
-			print ("New Highscore Reached! " + ScoreManager.score);
+		if (freshRun) {
+			if (ScoreManager.score > currentHighscore) {
+				print ("New Highscore Reached! " + ScoreManager.score);
+
+				// Just for safety, store the new Highscore immediately!
+				SavingHighscore();
+
+				freshRun = false;
+			}
 		}
 	}
 
