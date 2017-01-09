@@ -1,6 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GoogleVR/Scripts/Audio/GvrAudioSource.cs">
+    <Files>
+      <File FileName="Assets/Scripts/PlayerPrefsManager.cs" Line="67" Column="5" />
+      <File FileName="Assets/GoogleVR/Scripts/Audio/GvrAudioSource.cs" Line="293" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1853,7 +1853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11438702, guid: e7d0c41f65c144dbfbd1f5d05f2bc0dc, type: 2}
       propertyPath: playTime
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7d0c41f65c144dbfbd1f5d05f2bc0dc, type: 2}

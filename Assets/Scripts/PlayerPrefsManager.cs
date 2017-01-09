@@ -44,7 +44,9 @@ public class PlayerPrefsManager : MonoBehaviour
 	void SaveSettings(Settings settings)
 	{
 		settings.highscore = ScoreManager.score;
+		settings.run = 1;
 		PlayerPrefs.SetInt ("HIGHSCORE", settings.highscore);
+		PlayerPrefs.SetInt ("RUN", settings.run);
 	}
 
 	Settings LoadSettings()
@@ -52,26 +54,31 @@ public class PlayerPrefsManager : MonoBehaviour
 		var resultSettings = new Settings ();
 
 		resultSettings.highscore = PlayerPrefs.GetInt ("HIGHSCORE");
+		resultSettings.run = PlayerPrefs.GetInt ("RUN");
 
 		return resultSettings;
 	}
 
 	void ManageHighscore()
 	{
-		if (freshRun) {
-			if (ScoreManager.score > currentHighscore) {
-				print ("New Highscore Reached! " + ScoreManager.score);
+		if (playerSettings.run > 0) {
 
-				// Just for safety, store the new Highscore immediately!
-				SavingHighscore();
+			if (freshRun) {
+				if (ScoreManager.score > currentHighscore) {
+					print ("New Highscore Reached! " + ScoreManager.score);
 
-				freshRun = false;
+					// Just for safety, store the new Highscore immediately!
+					SavingHighscore ();
+
+					freshRun = false;
+				}
 			}
 		}
 	}
 
 	void SavingHighscore()
 	{
+
 		SaveSettings (playerSettings);
 		Debug.Log("PlayerPrefs saved!");
 	}

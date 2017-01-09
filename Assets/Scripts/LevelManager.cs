@@ -65,8 +65,7 @@ public class LevelManager : MonoBehaviour
 		if (sceneID >= playableLevelID) {
 			animator.enabled = true;
 			Player.lastVisitedScene = sceneID;
+			ScoreManager.score = 0;
 		}
-
-		ScoreManager.score = 0;
 	}
 }

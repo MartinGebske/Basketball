@@ -15,6 +15,7 @@ public class GameOver : MonoBehaviour
 	{
 		resultText.text = ScoreManager.score.ToString();
 		OnGameOverEvent ();
+
 	}
 
 }
