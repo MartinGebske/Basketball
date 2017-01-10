@@ -8,6 +8,8 @@ public class DetectScoring : MonoBehaviour {
 
 	public Text scoreText;
 
+	public ParticleSystem scoreParticles;
+
 	public static bool currentScoreRoutine;
 
 	private ScoreManager scoreManager;
@@ -20,8 +22,6 @@ public class DetectScoring : MonoBehaviour {
 
 	private Animator animator;
 
-	private AudioSource audioSource;
-
 	static readonly int anim_HasScored = Animator.StringToHash("hasScored");
 
 	public delegate void OnScoring ();
@@ -29,7 +29,8 @@ public class DetectScoring : MonoBehaviour {
 
 	void Start()
 	{
-		audioSource = GetComponent<AudioSource> ();
+		scoreParticles.Stop ();
+		scoreParticles.Clear ();
 
 		animator = GetComponentInChildren<Animator> ();
 
@@ -57,9 +58,9 @@ public class DetectScoring : MonoBehaviour {
 
 	void ScoreAction()
 	{
-		this.audioSource.Play ();
-
 		animator.SetTrigger (anim_HasScored);
+
+		scoreParticles.Play ();
 
 		// BUUUUG Wenn zum 5. mal gescored wurde. Hier geht es zum Score Manager und von da aus zum ScoreSignDisplay
 		scoreManager.IncrementScore(scorePerHit);

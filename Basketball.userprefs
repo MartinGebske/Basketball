@@ -1,9 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GoogleVR/Scripts/Audio/GvrAudioSource.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerPrefsManager.cs" Line="67" Column="5" />
-      <File FileName="Assets/GoogleVR/Scripts/Audio/GvrAudioSource.cs" Line="293" Column="1" />
+      <File FileName="Assets/Scripts/RandomizedAppearing.cs" Line="47" Column="41" />
+      <File FileName="Assets/Scripts/DetectScoring.cs" Line="63" Column="26" />
+      <File FileName="Assets/Scripts/AudioManager.cs" Line="89" Column="51" />
+      <File FileName="Assets/Scripts/LevelManager.cs" Line="47" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

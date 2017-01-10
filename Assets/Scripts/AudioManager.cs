@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
 
 	public AudioClip scoreStrikeSnd; // Könnte man noch in einen Array verwandeln.
 
+	public AudioClip scoreSndDefault;
+
 	public AudioClip ballDestroyedSnd;
 
 	public AudioClip ballSpawnSnd;
@@ -39,13 +41,15 @@ public class AudioManager : MonoBehaviour
 		Shredder.OnBallKilledEvent += this.OnBallDestroyed;
 		BallSpender.OnSpawnNewBallEvent += this.OnSpawningBall;
 		BallLauncher.OnShootBallEvent += this.OnThrowBall;
+		DetectScoring.OnScoreEvent += this.OnRegularScoring;
 	}
 
 	void OnDisable()
 	{
 		Shredder.OnBallKilledEvent -= this.OnBallDestroyed;
 		BallSpender.OnSpawnNewBallEvent -= this.OnSpawningBall;
-		BallLauncher.OnShootBallEvent += this.OnThrowBall;
+		BallLauncher.OnShootBallEvent -= this.OnThrowBall;
+		DetectScoring.OnScoreEvent -= this.OnRegularScoring;
 	}
 
 	void Start () 
@@ -79,5 +83,9 @@ public class AudioManager : MonoBehaviour
 	{
 		levelEffectSource.PlayOneShot (ballThrowSnd);
 	}
-	
+
+	public void OnRegularScoring()
+	{
+		levelEffectSource.PlayOneShot (scoreSndDefault);
+	}
 }
