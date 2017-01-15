@@ -1698,6 +1698,14 @@ Prefab:
       propertyPath: bounceSnd
       value: 
       objectReference: {fileID: 8300000, guid: fb2266244f9fa48fabc289bc3c7cf164, type: 3}
+    - target: {fileID: 8261834, guid: 1ca94cd44ad0643fba572ee0aa5c4e6b, type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261834, guid: 1ca94cd44ad0643fba572ee0aa5c4e6b, type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ca94cd44ad0643fba572ee0aa5c4e6b, type: 2}
   m_IsPrefabParent: 0

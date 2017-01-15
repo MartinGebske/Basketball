@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Shredder : MonoBehaviour 
 {
-	[Range(5,10)]public float killTime;
+	//[Range(5,10)]public float killTime;
 
 	private BallSpender ballSpender;
 
@@ -17,17 +17,17 @@ public class Shredder : MonoBehaviour
 		basketBall = GameObject.FindGameObjectWithTag ("Basketball");
 
 		ballSpender = FindObjectOfType<BallSpender> ();
-		if (killTime < 5)
-			killTime = 5;
+		//if (killTime < 5)
+		//	killTime = 5;
 	}
 
-	void Update()
+	/*void Update()
 	{
 		if(Ball.isInPlay)
 			StartCoroutine ("WaitForDestroy");
 		if(!Ball.isInPlay)
 			StopCoroutine("WaitForDestroy");
-	}
+	}*/
 
 	void OnTriggerEnter(Collider col)
 	{
@@ -52,10 +52,10 @@ public class Shredder : MonoBehaviour
 
 		ballSpender.SpendNewBall ();
 	}
-
+	/*
 	IEnumerator WaitForDestroy()
 	{
 		yield return new WaitForSeconds (killTime);
 		DestroyBall ();
-	}
+	}*/
 }

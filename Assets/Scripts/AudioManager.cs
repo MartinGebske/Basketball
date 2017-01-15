@@ -3,7 +3,15 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour 
 {
+	[Header("Tweak Values")]
+
 	public bool enableMusic;
+
+	public float lowPitchRange = 0.95F;
+
+	public float highPitchRange = 1.05F;
+
+	[Header("Audio Clips")]
 
 	public AudioClip levelMusic;
 
@@ -20,6 +28,8 @@ public class AudioManager : MonoBehaviour
 	public AudioClip bounceSnd;
 
 	public AudioClip fireworkSnd;
+
+	[Header("Audio Sources")]
 
 	public AudioSource musicSource;
 
@@ -74,31 +84,37 @@ public class AudioManager : MonoBehaviour
 
 	public void OnPlayScoreStrike()
 	{
+		levelEffectSource.pitch = 1;
 		levelEffectSource.PlayOneShot (scoreStrikeSnd);
 	}
 
 	public void OnBallDestroyed()
 	{
+		RandomizeSfx ();
 		levelEffectSource.PlayOneShot (ballDestroyedSnd);
 	}
 
 	public void OnSpawningBall()
 	{
+		levelEffectSource.pitch = 1;
 		levelEffectSource.PlayOneShot (ballSpawnSnd);
 	}
 
 	public void OnThrowBall()
 	{
+		RandomizeSfx ();
 		levelEffectSource.PlayOneShot (ballThrowSnd);
 	}
 
 	public void OnRegularScoring()
 	{
+		levelEffectSource.pitch = 1;
 		levelEffectSource.PlayOneShot (scoreSndDefault);
 	}
 
 	public void OnBouncing()
 	{
+		RandomizeSfx ();
 		levelEffectSource.PlayOneShot (bounceSnd);
 	}
 
@@ -109,7 +125,14 @@ public class AudioManager : MonoBehaviour
 
 	IEnumerator HoldBackSound()
 	{
+		levelEffectSource.pitch = 1;
 		yield return new WaitForSeconds (1);
 		levelEffectSource.PlayOneShot (fireworkSnd);
+	}
+
+	public void RandomizeSfx()
+	{
+		float randomPitch = Random.Range (lowPitchRange, highPitchRange);
+		levelEffectSource.pitch = randomPitch;
 	}
 }
