@@ -1,7 +1,7 @@
 // Shader created with Shader Forge v1.30 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.30;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:False,hqlp:False,rprd:False,enco:False,rmgx:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:2,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:2,rntp:3,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False;n:type:ShaderForge.SFN_Final,id:4013,x:32719,y:32712,varname:node_4013,prsc:2|diff-7542-RGB,spec-3148-OUT,gloss-6151-OUT,clip-1756-OUT;n:type:ShaderForge.SFN_Tex2d,id:7542,x:32098,y:32187,ptovrint:False,ptlb:Albedo,ptin:_Albedo,varname:node_7542,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:d9299cf6a9d4b470a86ed179e4b76483,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Slider,id:7366,x:32011,y:32958,ptovrint:False,ptlb:Specular Amount,ptin:_SpecularAmount,varname:node_7366,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.6837612,max:1;n:type:ShaderForge.SFN_Tex2d,id:4369,x:32168,y:32785,ptovrint:False,ptlb:Specular,ptin:_Specular,varname:node_4369,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:e95b62b992b5b4cb3aa9b5996b0f2fb5,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Multiply,id:3148,x:32384,y:32765,varname:node_3148,prsc:2|A-4369-RGB,B-7366-OUT;n:type:ShaderForge.SFN_Slider,id:5913,x:31662,y:32698,ptovrint:False,ptlb:Roughness,ptin:_Roughness,varname:node_5913,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:1;n:type:ShaderForge.SFN_Tex2d,id:2669,x:31837,y:32521,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:node_2669,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:86ad27f50cd554a9ba08d98ed591ecfc,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Multiply,id:6151,x:32112,y:32583,varname:node_6151,prsc:2|A-2669-R,B-5913-OUT;n:type:ShaderForge.SFN_FaceSign,id:109,x:31919,y:32366,varname:node_109,prsc:2,fstp:0;n:type:ShaderForge.SFN_RemapRange,id:5048,x:32098,y:32366,varname:node_5048,prsc:2,frmn:0,frmx:1,tomn:1,tomx:1|IN-109-VFACE;n:type:ShaderForge.SFN_Multiply,id:1756,x:32266,y:32366,varname:node_1756,prsc:2|A-7542-A,B-5048-OUT;proporder:7542-7366-4369-5913-2669;pass:END;sub:END;*/
+/*SF_DATA;ver:1.30;sub:START;pass:START;ps:flbk:Standard,iptp:0,cusa:False,bamd:0,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:False,hqlp:False,rprd:False,enco:False,rmgx:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:2,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:2,rntp:3,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False;n:type:ShaderForge.SFN_Final,id:4013,x:32719,y:32712,varname:node_4013,prsc:2|diff-7542-RGB,spec-3148-OUT,gloss-6151-OUT,clip-1756-OUT;n:type:ShaderForge.SFN_Tex2d,id:7542,x:32098,y:32187,ptovrint:False,ptlb:Albedo,ptin:_Albedo,varname:node_7542,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:d9299cf6a9d4b470a86ed179e4b76483,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Slider,id:7366,x:32011,y:32958,ptovrint:False,ptlb:Specular Amount,ptin:_SpecularAmount,varname:node_7366,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.6837612,max:1;n:type:ShaderForge.SFN_Tex2d,id:4369,x:32168,y:32785,ptovrint:False,ptlb:Specular,ptin:_Specular,varname:node_4369,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:e95b62b992b5b4cb3aa9b5996b0f2fb5,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Multiply,id:3148,x:32384,y:32765,varname:node_3148,prsc:2|A-4369-RGB,B-7366-OUT;n:type:ShaderForge.SFN_Slider,id:5913,x:31662,y:32698,ptovrint:False,ptlb:Roughness,ptin:_Roughness,varname:node_5913,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:1;n:type:ShaderForge.SFN_Tex2d,id:2669,x:31837,y:32521,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:node_2669,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:86ad27f50cd554a9ba08d98ed591ecfc,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Multiply,id:6151,x:32112,y:32583,varname:node_6151,prsc:2|A-2669-R,B-5913-OUT;n:type:ShaderForge.SFN_FaceSign,id:109,x:31919,y:32366,varname:node_109,prsc:2,fstp:0;n:type:ShaderForge.SFN_RemapRange,id:5048,x:32098,y:32366,varname:node_5048,prsc:2,frmn:0,frmx:1,tomn:1,tomx:1|IN-109-VFACE;n:type:ShaderForge.SFN_Multiply,id:1756,x:32266,y:32366,varname:node_1756,prsc:2|A-7542-A,B-5048-OUT;proporder:7542-7366-4369-5913-2669;pass:END;sub:END;*/
 
 Shader "Shader Forge/DefaultShader" {
     Properties {
@@ -35,7 +35,7 @@ Shader "Shader Forge/DefaultShader" {
             #include "UnityStandardBRDF.cginc"
             #pragma multi_compile_fwdbase_fullshadows
             #pragma multi_compile_fog
-            #pragma exclude_renderers gles3 metal d3d11_9x xbox360 xboxone ps3 ps4 psp2 
+            #pragma exclude_renderers xbox360 xboxone ps3 ps4 psp2 
             #pragma target 3.0
             uniform sampler2D _Albedo; uniform float4 _Albedo_ST;
             uniform float _SpecularAmount;
@@ -166,7 +166,7 @@ Shader "Shader Forge/DefaultShader" {
             #include "UnityStandardBRDF.cginc"
             #pragma multi_compile_fwdadd_fullshadows
             #pragma multi_compile_fog
-            #pragma exclude_renderers gles3 metal d3d11_9x xbox360 xboxone ps3 ps4 psp2 
+            #pragma exclude_renderers xbox360 xboxone ps3 ps4 psp2 
             #pragma target 3.0
             uniform sampler2D _Albedo; uniform float4 _Albedo_ST;
             uniform float _SpecularAmount;
@@ -271,7 +271,7 @@ Shader "Shader Forge/DefaultShader" {
             #pragma fragmentoption ARB_precision_hint_fastest
             #pragma multi_compile_shadowcaster
             #pragma multi_compile_fog
-            #pragma exclude_renderers gles3 metal d3d11_9x xbox360 xboxone ps3 ps4 psp2 
+            #pragma exclude_renderers xbox360 xboxone ps3 ps4 psp2 
             #pragma target 3.0
             uniform sampler2D _Albedo; uniform float4 _Albedo_ST;
             struct VertexInput {
@@ -299,6 +299,6 @@ Shader "Shader Forge/DefaultShader" {
             ENDCG
         }
     }
-    FallBack "Diffuse"
+    FallBack "Standard"
     CustomEditor "ShaderForgeMaterialInspector"
 }
