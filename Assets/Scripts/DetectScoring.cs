@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class DetectScoring : MonoBehaviour {
 
+	public int basketNumber;
+
     public int scorePerHit = 1;
 
 	public Text scoreText;
@@ -27,12 +29,26 @@ public class DetectScoring : MonoBehaviour {
 	public delegate void OnScoring ();
 	public static event OnScoring OnScoreEvent;
 
+
+	void OnEnable()
+	{
+		ScoreApplyer.OnBallPassEvent += this.PlayerHasScored;
+	}
+
+	void OnDisable()
+	{
+		ScoreApplyer.OnBallPassEvent -= this.PlayerHasScored;
+	}
+		
 	void Start()
 	{
+		
+
 		scoreParticles.Stop ();
 		scoreParticles.Clear ();
 
 		animator = GetComponentInChildren<Animator> ();
+		animator.enabled = false;
 
 		basketBall = GameObject.FindGameObjectWithTag ("Basketball");
 		rb = basketBall.GetComponent<Rigidbody> ();
@@ -43,26 +59,32 @@ public class DetectScoring : MonoBehaviour {
 		scoreText.text = scorePerHit.ToString ();
 	}
 		
-	void OnTriggerEnter(Collider ballCol)
+	void PlayerHasScored(int number)
 	{
-		currentScoreRoutine = true;
+		if (number == basketNumber) {
+			
+		
 
-		ScoreAction ();
+			// Waits for the Ball to spend.
+			currentScoreRoutine = true;
 
-		OnScoreEvent ();
+			ScoreAction ();
 
-		rb.isKinematic = true;
+			OnScoreEvent ();
 
-		StartCoroutine (WaitForBall());
+			rb.isKinematic = true;
+
+			StartCoroutine (WaitForBall ());
+		}
 	}
 
 	void ScoreAction()
 	{
+		animator.enabled = true;
 		animator.SetTrigger (anim_HasScored);
 
 		scoreParticles.Play ();
 
-		// BUUUUG Wenn zum 5. mal gescored wurde. Hier geht es zum Score Manager und von da aus zum ScoreSignDisplay
 		scoreManager.IncrementScore(scorePerHit);
 	}
 
