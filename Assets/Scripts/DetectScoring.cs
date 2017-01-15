@@ -42,8 +42,6 @@ public class DetectScoring : MonoBehaviour {
 		
 	void Start()
 	{
-		
-
 		scoreParticles.Stop ();
 		scoreParticles.Clear ();
 
@@ -62,8 +60,6 @@ public class DetectScoring : MonoBehaviour {
 	void PlayerHasScored(int number)
 	{
 		if (number == basketNumber) {
-			
-		
 
 			// Waits for the Ball to spend.
 			currentScoreRoutine = true;

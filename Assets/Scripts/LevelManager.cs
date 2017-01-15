@@ -49,14 +49,16 @@ public class LevelManager : MonoBehaviour
 
 		// Things to deactivate that MIGHT be there
 		ball = GameObject.FindGameObjectWithTag ("Basketball");
-		animatorUI.enabled = false;
+		//animatorUI.enabled = false; <-- Könnte falsch sein. Da schon unten der Crossfade gemacht wird.
 
 		sceneID = SceneManager.GetActiveScene ().buildIndex;
 
 		if (sceneID < playableLevelID) {
 			Destroy (ball);
 			animator.CrossFadeInFixedTime ("Idle", 0F);
-			animatorUI.CrossFadeInFixedTime ("Idle", 0F);
+			if (animatorUI) {
+				animatorUI.CrossFadeInFixedTime ("Idle", 0F);
+			}
 		}
 
 		if (sceneID == 1)

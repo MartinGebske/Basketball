@@ -9,6 +9,10 @@ public class PlayerPrefsManager : MonoBehaviour
 
 	bool freshRun = true;
 
+	// Refactor... for good.
+	public delegate void OnNewHighscore();
+	public static event OnNewHighscore OnHighscoreEvent;
+
 	void OnEnable()
 	{
 		DetectScoring.OnScoreEvent += this.ManageHighscore;
@@ -66,7 +70,7 @@ public class PlayerPrefsManager : MonoBehaviour
 			if (freshRun) {
 				if (ScoreManager.score > currentHighscore) {
 					print ("New Highscore Reached! " + ScoreManager.score);
-
+					OnHighscoreEvent ();
 					// Just for safety, store the new Highscore immediately!
 					SavingHighscore ();
 

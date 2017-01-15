@@ -200,6 +200,7 @@ GameObject:
   - 33: {fileID: 3377992}
   - 23: {fileID: 2328604}
   - 64: {fileID: 6433556}
+  - 114: {fileID: 11492930}
   m_Layer: 0
   m_Name: basket_ring
   m_TagString: Untagged
@@ -267,6 +268,7 @@ GameObject:
   - 4: {fileID: 492996}
   - 33: {fileID: 3369224}
   - 65: {fileID: 6555986}
+  - 114: {fileID: 11437486}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -645,7 +647,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111276}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: -0, y: 0, z: 5.14}
+  m_LocalPosition: {x: 2.62, y: 0, z: 5.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_Children:
@@ -813,7 +815,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155758}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: dc4fc5b2e4743471fb4d4554e4b7de48, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -825,7 +827,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174898}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: dc4fc5b2e4743471fb4d4554e4b7de48, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -861,7 +863,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161884}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: dc4fc5b2e4743471fb4d4554e4b7de48, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -982,6 +984,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: SCORE
+--- !u!114 &11437486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c96a756c70404bfaabc1d50f95e52d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11444046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -993,6 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2778d612a23be47dbba473220b02b715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basketNumber: 1
 --- !u!114 &11455996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1004,7 +1018,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d97360ddf05340c2a3d02bc2f649ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scorePerHit: 1
+  basketNumber: 1
+  scorePerHit: 100
   scoreText: {fileID: 11417270}
   scoreParticles: {fileID: 19873262}
 --- !u!114 &11486828
@@ -1033,6 +1048,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b033a4476509a4f4e804e9b3689d9f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11492930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c96a756c70404bfaabc1d50f95e52d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11493070

@@ -17,6 +17,10 @@ public class AudioManager : MonoBehaviour
 
 	public AudioClip ballThrowSnd;
 
+	public AudioClip bounceSnd;
+
+	public AudioClip fireworkSnd;
+
 	public AudioSource musicSource;
 
 	public AudioSource levelEffectSource;
@@ -38,18 +42,22 @@ public class AudioManager : MonoBehaviour
 
 	void OnEnable()
 	{
+		PlayerPrefsManager.OnHighscoreEvent += this.CelebrateHighscore;
 		Shredder.OnBallKilledEvent += this.OnBallDestroyed;
 		BallSpender.OnSpawnNewBallEvent += this.OnSpawningBall;
 		BallLauncher.OnShootBallEvent += this.OnThrowBall;
 		DetectScoring.OnScoreEvent += this.OnRegularScoring;
+		Bouncing.OnCollisionEvent += this.OnBouncing;
 	}
 
 	void OnDisable()
 	{
+		PlayerPrefsManager.OnHighscoreEvent -= this.CelebrateHighscore;
 		Shredder.OnBallKilledEvent -= this.OnBallDestroyed;
 		BallSpender.OnSpawnNewBallEvent -= this.OnSpawningBall;
 		BallLauncher.OnShootBallEvent -= this.OnThrowBall;
 		DetectScoring.OnScoreEvent -= this.OnRegularScoring;
+		Bouncing.OnCollisionEvent += this.OnBouncing;
 	}
 
 	void Start () 
@@ -87,5 +95,21 @@ public class AudioManager : MonoBehaviour
 	public void OnRegularScoring()
 	{
 		levelEffectSource.PlayOneShot (scoreSndDefault);
+	}
+
+	public void OnBouncing()
+	{
+		levelEffectSource.PlayOneShot (bounceSnd);
+	}
+
+	public void CelebrateHighscore()
+	{
+		StartCoroutine (HoldBackSound ());
+	}
+
+	IEnumerator HoldBackSound()
+	{
+		yield return new WaitForSeconds (1);
+		levelEffectSource.PlayOneShot (fireworkSnd);
 	}
 }

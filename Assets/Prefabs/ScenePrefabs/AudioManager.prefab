@@ -82,7 +82,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -104,7 +104,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!82 &8261834
 AudioSource:
   m_ObjectHideFlags: 1
@@ -193,9 +193,10 @@ MonoBehaviour:
   enableMusic: 0
   levelMusic: {fileID: 8300000, guid: 5e7373bf0d2cb45be804ff1169a556f9, type: 3}
   scoreStrikeSnd: {fileID: 8300000, guid: 76eb33ec27d9e4120b41a3063699e25d, type: 3}
+  scoreSndDefault: {fileID: 8300000, guid: 76eb33ec27d9e4120b41a3063699e25d, type: 3}
   ballDestroyedSnd: {fileID: 8300000, guid: 584448fd296ab4ec7a306080d4c8bc40, type: 3}
   ballSpawnSnd: {fileID: 8300000, guid: cab8e6c3decdb4d028abfd0da050312d, type: 3}
-  ballThrowSnd: {fileID: 0}
+  ballThrowSnd: {fileID: 8300000, guid: e2bbb34cbc680471a937a5fecf7f6492, type: 3}
   musicSource: {fileID: 8223420}
   levelEffectSource: {fileID: 8261834}
 --- !u!1001 &100100000

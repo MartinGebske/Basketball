@@ -7,10 +7,26 @@ public class ScoreSignDisplay : MonoBehaviour
 	public Text timerText;
 	public Text scoreText;
 
+	public ParticleSystem fireworks;
+
 	private LevelManager levelManager;
+
+	void OnEnable()
+	{
+		PlayerPrefsManager.OnHighscoreEvent += this.FireParticle;
+	}
+
+	void OnDisable()
+	{
+		PlayerPrefsManager.OnHighscoreEvent -= this.FireParticle;
+	}
+
 
 	void Start()
 	{
+		fireworks.Stop ();
+		fireworks.Clear ();
+
 		levelManager = FindObjectOfType<LevelManager> ();
 		UpdateScore ();
 	}
@@ -25,4 +41,8 @@ public class ScoreSignDisplay : MonoBehaviour
 		scoreText.text = ScoreManager.score.ToString();
 	}
 
+	public void FireParticle()
+	{
+		fireworks.Play ();
+	}
 }
