@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class RandomizedAppearing : MonoBehaviour 
 {
-	[Range( 0,5)] [Tooltip ("Gibt an wann der Timer zum ersten Mal startet.")]
+	[Range( 0,5)] [Tooltip ("Set the initial start of the basket")]
 	public float initialTime;
 
 	public float minInvisibleTime;

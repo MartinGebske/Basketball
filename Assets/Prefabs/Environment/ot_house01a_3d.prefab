@@ -25,7 +25,6 @@ GameObject:
   - 4: {fileID: 416124}
   - 33: {fileID: 3344544}
   - 23: {fileID: 2382214}
-  - 65: {fileID: 6508948}
   m_Layer: 0
   m_Name: ot_house01a
   m_TagString: Untagged
@@ -93,18 +92,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198202}
   m_Mesh: {fileID: 4300000, guid: 2c3c5c61dd27f4eb4bfad40c7fd8072d, type: 3}
---- !u!65 &6508948
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198202}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.2, y: 20, z: 11.33621}
-  m_Center: {x: 0, y: 11.332087, z: 0.6681049}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
