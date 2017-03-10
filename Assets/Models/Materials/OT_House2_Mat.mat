@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: OT_House2_Mat
-  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 56e69a004be284c01863481171481c54, type: 3}
   m_ShaderKeywords: _EMISSION _SPECGLOSSMAP
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -89,7 +89,7 @@ Material:
         first:
           name: _Gloss
         second:
-          m_Texture: {fileID: 2800000, guid: 4ef47fc81e7724347bfa61b0ca123414, type: 3}
+          m_Texture: {fileID: 2800000, guid: 0acd790197eb54fccae56d1a82e35e6d, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -102,6 +102,13 @@ Material:
       data:
         first:
           name: _SpecGlossMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 4ef47fc81e7724347bfa61b0ca123414, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Metallic
         second:
           m_Texture: {fileID: 2800000, guid: 4ef47fc81e7724347bfa61b0ca123414, type: 3}
           m_Scale: {x: 1, y: 1}
@@ -155,6 +162,18 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _Emission
+        second: 0.1
+      data:
+        first:
+          name: _outlinewidth
+        second: 0.05
+      data:
+        first:
+          name: _Outline
+        second: 0.1
     m_Colors:
       data:
         first:
