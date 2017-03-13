@@ -6,19 +6,11 @@ using TMPro;
 
 public class VRButton : MonoBehaviour, IGvrGazeResponder 
 {
-	// Jeder Button hat eine Animation attached. Wenn diese Animation abgelaufen ist
-	// soll der Button ausgelöst sein.
-	// Bei der Levelauswahl etwa: Y Position anheben (Schraube nach oben....) und Textur einfaden...
-	// GGf. kann dann noch ein Playbutton oder "Start" Text darüber erscheinen. Damit es deutlich ist, was
-	// man macht.
-
-	Animator animator;
-
-	// denke an den static readonly int YOURANIMATIONCLIP = Animator.StringToHash("ANIMATIONCLIP");
-
 	public string sceneToLoad;
 
 	public string playerFeedback;
+
+	public ParticleSystem selectionPart;
 
 	public TextMeshProUGUI infoText;
 
@@ -28,13 +20,16 @@ public class VRButton : MonoBehaviour, IGvrGazeResponder
 	public Color colorEnd = Color.green;
 	public Renderer[] rend;
 
-	public int selectionTime;
+	//public int selectionTime;
 
 	Vector3 startPosition;
 
 
 	void Start()
 	{
+		selectionPart.Stop ();
+		selectionPart.Clear ();
+
 		infoText.enabled = false;
 
 		foreach (var item in rend) {
@@ -51,7 +46,7 @@ public class VRButton : MonoBehaviour, IGvrGazeResponder
 			StartCoroutine ("LiftUpAsset");
 			StartCoroutine ("Countdown");
 		}
-
+		selectionPart.Play ();
 	}
 
 	public void OnGazeTrigger() 
@@ -102,7 +97,8 @@ public class VRButton : MonoBehaviour, IGvrGazeResponder
 			foreach (var item in rend) {
 				item.material.color = colorStart;
 			}
-
+			selectionPart.Stop ();
+			selectionPart.Clear ();
 			yield return new WaitForSeconds (0.01F);
 		}
 	}
@@ -110,8 +106,8 @@ public class VRButton : MonoBehaviour, IGvrGazeResponder
 	IEnumerator Countdown()
 	{
 		if (this != null) {
-			for (int i = 3; i > selectionTime; i--) {
-
+			for (int i = 5; i >= 0; i--) {
+				print (i);
 				if (i <= 0) {
 					StopCoroutine ("LiftUpAsset");
 					StopCoroutine ("LowerDownAsset");
