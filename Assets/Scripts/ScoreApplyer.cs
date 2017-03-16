@@ -19,8 +19,9 @@ public class ScoreApplyer : MonoBehaviour
 	void OnTriggerEnter(Collider otherCollider)
 	{
 		if (otherCollider == expectedCollider) {
-			OnBallPassEvent (basketNumber);
+			if (OnBallPassEvent != null) {
+				OnBallPassEvent (basketNumber);
+			}
 		}
-			
 	}
 }

@@ -77,27 +77,35 @@ public class AudioManager : MonoBehaviour
 			musicSource.Play ();
 		}
 
-		if (levelEffectSource != null) {
-			return;
-		}
+		//if (levelEffectSource != null) {
+		//	return;
+		//}
 	}
+
+	// TODO: Sollte man eventuell mal refactorn! void PlayLevelEffet(AudioClip clip)
 
 	public void OnPlayScoreStrike()
 	{
-		levelEffectSource.pitch = 1;
-		levelEffectSource.PlayOneShot (scoreStrikeSnd);
+		if (levelEffectSource != null) {
+			levelEffectSource.pitch = 1;
+			levelEffectSource.PlayOneShot (scoreStrikeSnd);
+		}
 	}
 
 	public void OnBallDestroyed()
 	{
 		RandomizeSfx ();
-		levelEffectSource.PlayOneShot (ballDestroyedSnd);
+		if (levelEffectSource != null) {
+			levelEffectSource.PlayOneShot (ballDestroyedSnd);
+		}
 	}
 
 	public void OnSpawningBall()
 	{
-		levelEffectSource.pitch = 1;
-		levelEffectSource.PlayOneShot (ballSpawnSnd);
+		if (levelEffectSource != null) {
+			levelEffectSource.pitch = 1;
+			levelEffectSource.PlayOneShot (ballSpawnSnd);
+		}
 	}
 
 	public void OnThrowBall()

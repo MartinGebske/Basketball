@@ -107,7 +107,7 @@
      <Compile Include="Assets\Scripts\ScoreSignDisplay.cs" />
      <Compile Include="Assets\Scripts\Settings.cs" />
      <Compile Include="Assets\Scripts\Shredder.cs" />
-     <Compile Include="Assets\Scripts\SplashScreenSetup.cs" />
+     <Compile Include="Assets\Scripts\SplashScreenBehaviour.cs" />
      <Compile Include="Assets\Scripts\VRButton.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EnableCameraDepthInForward.cs" />
@@ -142,6 +142,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples\Scripts\WarpTextExample.cs" />
+     <Compile Include="Assets\TutorialLogic.cs" />
      <None Include="Assets\HouseShader.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_LightPosition\SFN_LightPosition.shader" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />

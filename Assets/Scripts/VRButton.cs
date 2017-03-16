@@ -107,7 +107,6 @@ public class VRButton : MonoBehaviour, IGvrGazeResponder
 	{
 		if (this != null) {
 			for (int i = 5; i >= 0; i--) {
-				print (i);
 				if (i <= 0) {
 					StopCoroutine ("LiftUpAsset");
 					StopCoroutine ("LowerDownAsset");

@@ -9,6 +9,8 @@ public class Bouncing : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision)
 	{
-		OnCollisionEvent ();
+		if (OnCollisionEvent != null) {
+			OnCollisionEvent ();
+		}
 	}
 }

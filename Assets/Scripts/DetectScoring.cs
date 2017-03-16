@@ -76,12 +76,18 @@ public class DetectScoring : MonoBehaviour {
 
 	void ScoreAction()
 	{
-		animator.enabled = true;
-		animator.SetTrigger (anim_HasScored);
+		if (animator != null) {
+			animator.enabled = true;
+			animator.SetTrigger (anim_HasScored);
+		}
 
 		scoreParticles.Play ();
 
-		scoreManager.IncrementScore(scorePerHit);
+		if (scoreManager != null) {
+			scoreManager.IncrementScore (scorePerHit);
+		} else {
+			Debug.LogError ("ScoreManager not found!");
+		}
 	}
 
 	IEnumerator WaitForBall()

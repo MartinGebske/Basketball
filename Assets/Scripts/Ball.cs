@@ -35,8 +35,19 @@ public class Ball : MonoBehaviour, IGvrGazeResponder {
 
 	public void OnGazeEnter()
 	{
-		if(!isInPlay)
-		ballLauncher.GrabBall ();
+		if (!isInPlay) {
+			if (ballLauncher != null) {
+				ballLauncher.GrabBall ();
+			} else {
+				ballLauncher = FindObjectOfType<BallLauncher> ();
+				if (ballLauncher != null) {
+					ballLauncher.GrabBall ();
+				} else if (ballLauncher == null) {
+					Debug.LogWarning ("Weird shit happened to the Ball Launcher o.O");
+				}
+			}
+		}
+
 	}
 	public void OnGazeTrigger()
 	{
@@ -49,12 +60,16 @@ public class Ball : MonoBehaviour, IGvrGazeResponder {
 	{
 		if (animator == null) {
 			animator = GetComponent<Animator> ();
+		} else if(animator != null){
+			animator.SetTrigger (anim_ShowBall);
 		}
-		animator.SetTrigger (anim_ShowBall);
+	
 	}
 
 	void OutOfGame()
 	{
-		animator.CrossFade ("Idle", 0);
+		if (animator != null) {
+			animator.CrossFade ("Idle", 0);
+		}
 	}
 }

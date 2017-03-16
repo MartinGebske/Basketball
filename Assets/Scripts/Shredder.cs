@@ -17,23 +17,18 @@ public class Shredder : MonoBehaviour
 		basketBall = GameObject.FindGameObjectWithTag ("Basketball");
 
 		ballSpender = FindObjectOfType<BallSpender> ();
-		//if (killTime < 5)
-		//	killTime = 5;
 	}
-
-	/*void Update()
-	{
-		if(Ball.isInPlay)
-			StartCoroutine ("WaitForDestroy");
-		if(!Ball.isInPlay)
-			StopCoroutine("WaitForDestroy");
-	}*/
 
 	void OnTriggerEnter(Collider col)
 	{
-		OnBallKilledEvent ();
+		if (OnBallKilledEvent != null) {
+			OnBallKilledEvent ();
+		}
+
 		Rigidbody rb = col.attachedRigidbody;
-		rb.isKinematic = true;
+		if (rb != null) {
+			rb.isKinematic = true;
+		}
 		StartCoroutine ("WaitForBall");
 	}
 		
@@ -45,17 +40,14 @@ public class Shredder : MonoBehaviour
 
 	public void DestroyBall()
 	{
-		OnBallKilledEvent (); 
+		if (OnBallKilledEvent != null) {
+			OnBallKilledEvent (); 
+		}
 
 		Rigidbody rb = basketBall.GetComponent<Rigidbody> ();
-		rb.isKinematic = true;
-
+		if (rb != null) {
+			rb.isKinematic = true;
+		}
 		ballSpender.SpendNewBall ();
 	}
-	/*
-	IEnumerator WaitForDestroy()
-	{
-		yield return new WaitForSeconds (killTime);
-		DestroyBall ();
-	}*/
 }

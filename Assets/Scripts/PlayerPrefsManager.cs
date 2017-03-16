@@ -35,7 +35,8 @@ public class PlayerPrefsManager : MonoBehaviour
 		freshRun = true;
 	}
 
-	// TODO: Just for Debug Purpose: Deletes Values in PlayerPrefs.... obviously. -.-
+	// TODO: Just for Debug Purpose: Deletes Values in PlayerPrefs.... obviously. -.- Should be attached to specific
+	// PlayerPrefsKiller GameObject.
 
 	void Update()
 	{
@@ -47,10 +48,14 @@ public class PlayerPrefsManager : MonoBehaviour
 
 	void SaveSettings(Settings settings)
 	{
-		settings.highscore = ScoreManager.score;
-		settings.run = 1;
-		PlayerPrefs.SetInt ("HIGHSCORE", settings.highscore);
-		PlayerPrefs.SetInt ("RUN", settings.run);
+		if (settings != null) {
+			settings.highscore = ScoreManager.score;
+			settings.run = 1;
+			PlayerPrefs.SetInt ("HIGHSCORE", settings.highscore);
+			PlayerPrefs.SetInt ("RUN", settings.run);
+		} else {
+			Debug.LogError ("Settings is null!");
+		}
 	}
 
 	Settings LoadSettings()
@@ -82,7 +87,6 @@ public class PlayerPrefsManager : MonoBehaviour
 
 	void SavingHighscore()
 	{
-
 		SaveSettings (playerSettings);
 		Debug.Log("PlayerPrefs saved!");
 	}

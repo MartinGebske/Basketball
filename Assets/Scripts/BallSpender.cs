@@ -24,16 +24,19 @@ public class BallSpender : MonoBehaviour {
 
 	void Start()
 	{
-		//rend = basketBall.GetComponent<Renderer> ();
-		//rend.enabled = false;
-		SpendNewBall ();
+			SpendNewBall ();
 	}
 
 	public void SpendNewBall()
 	{
 		spawnPart.Play ();
-		OnSpawnNewBallEvent ();
-		basketBall.transform.position = this.transform.position;
+		if (OnSpawnNewBallEvent != null) {
+			OnSpawnNewBallEvent ();
+		}
+		if (basketBall != null) {
+			basketBall.transform.position = this.transform.position;
+		}
+
 		StartCoroutine (WaitForBall ());
 	}
 
@@ -41,8 +44,5 @@ public class BallSpender : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (2);
 		Ball.isInPlay = false;
-		//rend.enabled = true;
 	}
-
-
 }
