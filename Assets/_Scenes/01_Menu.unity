@@ -418,6 +418,10 @@ Prefab:
       propertyPath: playerFeedback
       value: Entering Widton DT
       objectReference: {fileID: 0}
+    - target: {fileID: 139914, guid: 368fdff4a631d4e808e4373cd168f07c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 368fdff4a631d4e808e4373cd168f07c, type: 2}
   m_IsPrefabParent: 0
